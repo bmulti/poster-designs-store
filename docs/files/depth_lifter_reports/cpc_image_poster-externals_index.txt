@@ -1,0 +1,141 @@
+source_file = cpc_image_poster.py
+source_modified = 2026-11-20 04:39:31
+import   origin   line;  indented: external name   xN calls   called by (def paths)
+
+from pathlib import Path    standard library    line 142    CAUTION: source file not named at the call
+        Path    x24    called by (module level), _mongo_backup_posters, _read_poster_import_file, ImageSidekick.__init__, ImageSidekick._choose_config_directory, ImageSidekick._configured_directory, ImageSidekick._export_json_documents, ImageSidekick._load_app_icon, ImageSidekick._open_selected_browser_directory, ImageSidekick._read_posters_py, ImageSidekick._records_from_import_py, ImageSidekick._rewrite_image_without_metadata, ImageSidekick._write_poster_export, ImageSidekick.browser_go_up, ImageSidekick.choose_browser_directory, ImageSidekick.choose_directory, ImageSidekick.choose_posters_py, ImageSidekick.clean_selected_image_metadata, ImageSidekick.export_poster_data_json, ImageSidekick.import_poster_data_json, ImageSidekick.refresh_file_browser
+        Path.home    x4    called by ImageSidekick._choose_config_directory, ImageSidekick.choose_browser_directory, ImageSidekick.choose_directory, ImageSidekick.refresh_file_browser
+import sys    standard library    line 143
+        sys.path.insert    x1    called by (module level)
+import ast    standard library    line 160
+        ast.literal_eval    x2    called by _read_poster_import_file, ImageSidekick._records_from_import_py
+        ast.parse    x2    called by _read_poster_import_file, ImageSidekick._records_from_import_py
+import json    standard library    line 161
+        json.dumps    x7    called by _display_text, _mongo_backup_posters, ImageSidekick._display_text, ImageSidekick._export_json_documents, ImageSidekick._write_configured_poster_backup, ImageSidekick._write_poster_export, ImageSidekick.save_config
+        json.loads    x3    called by _read_poster_import_file, _shared_config, ImageSidekick._load_config
+import re    standard library    line 162
+        re.fullmatch    x2    called by _poster_ref_key
+import subprocess    standard library    line 163
+        subprocess.Popen    x1    called by ImageSidekick.open_tagger
+import sys    standard library    line 164
+        sys.path.insert    x1    called by (module level)
+import tkinter as tk    standard library    line 165
+        tk.BooleanVar    x1    called by ImageSidekick.__init__
+        tk.Canvas    x2    called by ImageSidekick._build_poster_designs_tab, ImageSidekick._build_settings_tab
+        tk.DoubleVar    x1    called by ImageSidekick.__init__
+        tk.Label    x1    called by ImageSidekick._build_poster_tab
+        tk.Listbox    x1    called by ImageSidekick._build_settings_tab
+        tk.StringVar    x35    called by ImageSidekick.__init__, ImageSidekick._build_poster_tab, ImageSidekick._build_settings_tab
+        tk.Text    x2    called by ImageSidekick._build_notes_tab, ImageSidekick._build_poster_tab
+from datetime import datetime    standard library    line 166    CAUTION: source file not named at the call
+        datetime.fromtimestamp    x2    called by ImageSidekick.refresh_file_browser
+        datetime.now    x5    called by _mongo_backup_posters, ImageSidekick._write_configured_poster_backup, ImageSidekick.clear_poster_data, ImageSidekick.export_poster_data_json, ImageSidekick.save_config_from_button
+from pathlib import Path    standard library    line 167    CAUTION: source file not named at the call
+        Path    x24    called by (module level), _mongo_backup_posters, _read_poster_import_file, ImageSidekick.__init__, ImageSidekick._choose_config_directory, ImageSidekick._configured_directory, ImageSidekick._export_json_documents, ImageSidekick._load_app_icon, ImageSidekick._open_selected_browser_directory, ImageSidekick._read_posters_py, ImageSidekick._records_from_import_py, ImageSidekick._rewrite_image_without_metadata, ImageSidekick._write_poster_export, ImageSidekick.browser_go_up, ImageSidekick.choose_browser_directory, ImageSidekick.choose_directory, ImageSidekick.choose_posters_py, ImageSidekick.clean_selected_image_metadata, ImageSidekick.export_poster_data_json, ImageSidekick.import_poster_data_json, ImageSidekick.refresh_file_browser
+        Path.home    x4    called by ImageSidekick._choose_config_directory, ImageSidekick.choose_browser_directory, ImageSidekick.choose_directory, ImageSidekick.refresh_file_browser
+from tkinter import filedialog    standard library    line 169    CAUTION: source file not named at the call
+        filedialog.askdirectory    x3    called by ImageSidekick._choose_config_directory, ImageSidekick.choose_browser_directory, ImageSidekick.choose_directory
+        filedialog.askopenfilename    x3    called by ImageSidekick.choose_poster_image_file, ImageSidekick.choose_posters_py, ImageSidekick.import_poster_data_json
+        filedialog.asksaveasfilename    x2    called by ImageSidekick._export_json_documents, ImageSidekick.export_poster_data_json
+from tkinter import messagebox    standard library    line 169    CAUTION: source file not named at the call
+        messagebox.askyesno    x5    called by ImageSidekick.clean_selected_image_metadata, ImageSidekick.clear_poster_data, ImageSidekick.delete_managed_tag, ImageSidekick.delete_poster_record, ImageSidekick.repair_duplicate_posters
+        messagebox.showerror    x18    called by ImageSidekick._clean_tag_name, ImageSidekick._export_json_documents, ImageSidekick.add_managed_tag, ImageSidekick.add_poster_record, ImageSidekick.backup_posters, ImageSidekick.clear_poster_data, ImageSidekick.delete_poster_record, ImageSidekick.export_poster_data_json, ImageSidekick.import_poster_data_json, ImageSidekick.open_tagger, ImageSidekick.repair_duplicate_posters, ImageSidekick.save_config, ImageSidekick.update_poster_record
+        messagebox.showinfo    x12    called by ImageSidekick._export_json_documents, ImageSidekick.backup_posters, ImageSidekick.clean_selected_image_metadata, ImageSidekick.copy_selected_poster_inst, ImageSidekick.delete_poster_record, ImageSidekick.import_poster_data_json, ImageSidekick.paste_poster_image, ImageSidekick.repair_duplicate_posters
+        messagebox.showwarning    x15    called by ImageSidekick._drop_poster_image_file, ImageSidekick._load_config, ImageSidekick._save_poster_image_from_path, ImageSidekick.add_poster_record, ImageSidekick.clean_selected_image_metadata, ImageSidekick.export_active_posters_to_json, ImageSidekick.export_posters_py_to_json, ImageSidekick.paste_poster_image, ImageSidekick.save_web_image_sample, ImageSidekick.update_poster_record
+from tkinter import ttk    standard library    line 169    CAUTION: source file not named at the call
+        ttk.Button    x39    called by ImageSidekick._build_file_browser_tab, ImageSidekick._build_poster_designs_tab, ImageSidekick._build_poster_tab, ImageSidekick._build_settings_tab, ImageSidekick._build_songs_data_tab, ImageSidekick._build_ui_choices_tab
+        ttk.Combobox    x1    called by ImageSidekick._build_ui_choices_tab
+        ttk.Entry    x20    called by ImageSidekick._build_file_browser_tab, ImageSidekick._build_poster_designs_tab, ImageSidekick._build_poster_tab, ImageSidekick._build_settings_tab, ImageSidekick._build_songs_data_tab, ImageSidekick._build_ui_choices_tab
+        ttk.Frame    x36    called by ImageSidekick._build_file_browser_tab, ImageSidekick._build_in, ImageSidekick._build_poster_designs_tab, ImageSidekick._build_poster_tab, ImageSidekick._build_settings_tab, ImageSidekick._build_songs_data_tab, ImageSidekick._build_ui_choices_tab
+        ttk.Label    x33    called by ImageSidekick._build_file_browser_tab, ImageSidekick._build_poster_designs_tab, ImageSidekick._build_poster_tab, ImageSidekick._build_settings_tab, ImageSidekick._build_songs_data_tab, ImageSidekick._build_ui_choices_tab
+        ttk.LabelFrame    x12    called by ImageSidekick._build_file_browser_tab, ImageSidekick._build_poster_tab, ImageSidekick._build_settings_tab, ImageSidekick._build_ui_choices_tab
+        ttk.Notebook    x1    called by ImageSidekick._build_in
+        ttk.Panedwindow    x1    called by ImageSidekick._build_file_browser_tab
+        ttk.Progressbar    x1    called by ImageSidekick._build_settings_tab
+        ttk.Radiobutton    x3    called by ImageSidekick._build_settings_tab, ImageSidekick._build_ui_choices_tab
+        ttk.Scrollbar    x4    called by ImageSidekick._build_notes_tab, ImageSidekick._build_poster_tab, ImageSidekick._build_settings_tab
+from tkinter import font as tkfont    standard library    line 170    CAUTION: source file not named at the call
+        tkfont.nametofont    x1    called by ImageSidekick._build_notes_tab
+from tkinterdnd2 import TkinterDnD    third party or your own file    line 173    CAUTION: source file not named at the call
+        TkinterDnD.Tk    x1    called by main
+from tkinterdnd2 import DND_FILES    third party or your own file    line 173    CAUTION: source file not named at the call
+        (no calls through this import)
+from PIL import Image    third party or your own file    line 178    CAUTION: source file not named at the call
+        Image.Exif    x1    called by ImageSidekick._rewrite_image_without_metadata
+        Image.frombytes    x2    called by ImageSidekick._rewrite_image_without_metadata
+        Image.open    x5    called by ImageSidekick._load_poster_image, ImageSidekick._refresh_poster_design_previews, ImageSidekick._rewrite_image_without_metadata, ImageSidekick._save_poster_image_from_path, ImageSidekick.save_web_image_sample
+from PIL import ImageOps    third party or your own file    line 178    CAUTION: source file not named at the call
+        ImageOps.exif_transpose    x3    called by ImageSidekick._load_poster_image, ImageSidekick._refresh_poster_design_previews, ImageSidekick._rewrite_image_without_metadata
+from PIL import ImageTk    third party or your own file    line 178    CAUTION: source file not named at the call
+        ImageTk.PhotoImage    x2    called by ImageSidekick._redraw_poster_design_previews, ImageSidekick._resize_poster_image
+from PIL import PngImagePlugin    third party or your own file    line 178    CAUTION: source file not named at the call
+        PngImagePlugin.PngInfo    x1    called by ImageSidekick._rewrite_image_without_metadata
+from cc_poster_data import load_poster_records    third party or your own file    line 180    CAUTION: source file not named at the call
+        load_poster_records    x1    called by ImageSidekick.refresh_poster_designs
+from cc_poster_data import poster_record_from_document    third party or your own file    line 180    CAUTION: source file not named at the call
+        poster_record_from_document    x1    called by ImageSidekick._poster_record_from_document
+from cc_poster_data import read_posters_py    third party or your own file    line 180    CAUTION: source file not named at the call
+        read_posters_py    x1    called by ImageSidekick._read_posters_py
+from cc_poster_data import save_poster_record as persist_poster_record    third party or your own file    line 180    CAUTION: source file not named at the call
+        persist_poster_record    x2    called by ImageSidekick.add_poster_record, ImageSidekick.update_poster_record
+from cc_poster_data import delete_poster_record as persist_delete_poster_record    third party or your own file    line 180    CAUTION: source file not named at the call
+        persist_delete_poster_record    x2    called by ImageSidekick.clear_poster_data, ImageSidekick.delete_poster_record
+from cc_poster_data import backup_poster_data    third party or your own file    line 180    CAUTION: source file not named at the call
+        (no calls through this import)
+from cc_song_data import load_song_records as shared_load_song_records    third party or your own file    line 182    CAUTION: source file not named at the call
+        shared_load_song_records    x1    called by load_song_records
+from cc_song_data import song_record_from_document as shared_song_record_from_document    third party or your own file    line 182    CAUTION: source file not named at the call
+        shared_song_record_from_document    x1    called by ImageSidekick.song_record_from_document
+from gateway_controller import GatewayController    third party or your own file    line 183    CAUTION: source file not named at the call
+        GatewayController    x1    called by ImageSidekick._build_in
+import cpc_ui_theme as ui_theme    third party or your own file    line 186
+        (no calls through this import)
+import cpc_ui_state as ui_state    third party or your own file    line 190
+        (no calls through this import)
+import cpc_ui_choices as ui_choices    third party or your own file    line 194
+        ui_choices.attach    x1    called by ImageSidekick._build_ui_choices_tab
+from cpc_ui_theme import apply_theme    third party or your own file    line 199    CAUTION: source file not named at the call
+        apply_theme    x2    called by ImageSidekick.__init__, ImageSidekick._apply_ui_theme_choice
+from cpc_ui_theme import normalize_theme_name    third party or your own file    line 199    CAUTION: source file not named at the call
+        normalize_theme_name    x4    called by ImageSidekick.__init__, ImageSidekick._apply_ui_theme_choice, ImageSidekick._on_tab_changed, ImageSidekick.sync_config_to_dict
+from cpc_ui_theme import theme_names    third party or your own file    line 199    CAUTION: source file not named at the call
+        theme_names    x1    called by ImageSidekick._build_ui_choices_tab
+from cpc_ui_theme import density_names    third party or your own file    line 199    CAUTION: source file not named at the call
+        density_names    x1    called by ImageSidekick._build_ui_choices_tab
+from cpc_ui_theme import normalize_density_name    third party or your own file    line 199    CAUTION: source file not named at the call
+        normalize_density_name    x3    called by ImageSidekick.__init__, ImageSidekick._apply_ui_theme_choice, ImageSidekick.sync_config_to_dict
+from cpc_ui_theme import apply_app_icon    third party or your own file    line 199    CAUTION: source file not named at the call
+        apply_app_icon    x1    called by ImageSidekick.__init__
+from cpc_ui_theme import theme_palette    third party or your own file    line 199    CAUTION: source file not named at the call
+        theme_palette    x2    called by ImageSidekick.__init__, ImageSidekick._apply_ui_theme_choice
+from cpc_ui_state import select_tab_by_text    third party or your own file    line 203    CAUTION: source file not named at the call
+        select_tab_by_text    x2    called by ImageSidekick._build_in, ImageSidekick._goto_tab
+from cpc_ui_state import current_tab_text    third party or your own file    line 203    CAUTION: source file not named at the call
+        current_tab_text    x2    called by ImageSidekick._on_tab_changed, ImageSidekick.sync_config_to_dict
+from cpc_treeviews import TreeviewMixin    third party or your own file    line 204    CAUTION: source file not named at the call
+        (no calls through this import)
+from cpc_treeviews import add_export_buttons    third party or your own file    line 204    CAUTION: source file not named at the call
+        add_export_buttons    x3    called by ImageSidekick._build_file_browser_tab, ImageSidekick._build_poster_designs_tab, ImageSidekick._build_songs_data_tab
+from pymongo import MongoClient    third party or your own file    line 207    CAUTION: source file not named at the call
+        MongoClient    x4    called by _mongo_import_posters_overwrite, _mongo_repair_duplicate_posters, _mongo_scan_poster_references, read_mongo_collection
+from PIL import ImageGrab    third party or your own file    line 1549    CAUTION: source file not named at the call
+        ImageGrab.grabclipboard    x1    called by ImageSidekick.paste_poster_image
+from urllib.request import Request    standard library    line 1566    CAUTION: source file not named at the call
+        Request    x1    called by ImageSidekick.save_web_image_sample
+from urllib.request import urlopen    standard library    line 1566    CAUTION: source file not named at the call
+        urlopen    x1    called by ImageSidekick.save_web_image_sample
+
+Unknown source (not imported or defined in this file)
+    unknown, not imported or defined here
+        canvas.yview_scroll    x1    called by ImageSidekick._build_settings_tab._config_mousewheel
+        config.update    x1    called by _shared_config
+        DEFAULT_POSTER_ROOT_DIR.rstrip    x1    called by ImageSidekick.__init__
+        document.get    x2    called by _poster_import_record.first
+        lower.get    x1    called by _poster_import_record.first
+        path.is_file    x1    called by _shared_config
+        path.read_text    x1    called by _shared_config
+        r.get    x1    called by ImageSidekick._on_tab_changed
+        shared_read_mongo_collection    x1    called by ImageSidekick._read_mongo_collection
+        text.configure    x2    called by ImageSidekick._build_notes_tab.link
+        text.insert    x3    called by ImageSidekick._build_notes_tab.body, ImageSidekick._build_notes_tab.link, ImageSidekick._build_notes_tab.title
+        text.tag_bind    x3    called by ImageSidekick._build_notes_tab.link

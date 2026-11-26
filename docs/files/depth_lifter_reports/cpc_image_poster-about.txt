@@ -1,0 +1,96 @@
+Python Code Depth Lifter 4.7
+Dissect a python file
+project: Python
+
+Folders in use
+    Settings   \\192.168.1.10\shared\cc_lib\_pub\cpc_depth_lifter\cc_depth_lifter.json
+    Reports    X:\cc_lib\_pub\cpc_image_poster\depth_lifter_reports
+    Backups    \\192.168.1.10\shared\cc_lib\_pub\cpc_depth_lifter\backups
+    Crash log  \\192.168.1.10\shared\cc_lib\_pub\cpc_depth_lifter\depth_lifter.log
+
+File        cpc_image_poster.py
+Modified    2026-11-20 04:39:31
+Encoding    UTF-8
+Line ends   LF (Unix, GitHub)
+
+Cautions
+    Caution 37 of 47 imports do not name the source file at the call: from pathlib import Path, from datetime import datetime, from pathlib import Path, from tkinter import filedialog, from tkinter import messagebox, from tkinter import ttk ...
+
+Statistics
+    Lines                         3249   (code 2901, comments 24, blank 324)
+    Classes                       1
+    Functions and methods         131   (module level 17, methods 109, nested 5, async 0)
+    Deepest nesting               2
+    Function length (lines)       average 21.6   median 11   shortest 1 (_poster_text_value)   longest 236 (_build_settings_tab)
+    Longest functions             _build_settings_tab 236, _build_notes_tab 154, __init__ 148, _build_poster_designs_tab 106, refresh_file_browser 78
+    Over 50 lines                 12   (_build_settings_tab, _build_notes_tab, __init__, _build_poster_designs_tab, refresh_file_browser, _build_file_browser_tab, _build_ui_choices_tab, _read_poster_import_file)
+    Parameters per function       average 0.7   most 5 (_mongo_import_posters_overwrite)
+    With a docstring              33 of 131   (25%)   module docstring: no
+    With a return type            0 of 131   (0%)
+    Decorated                     8
+    Variables                     module 23, class 1, self attributes 88, in functions 452
+    Call sites                    1693   (661 distinct callees)
+
+Imports
+    47 imports: 10 by module or alias, 37 by bare name, 0 star
+    The source file is named at the call for 21% of them
+
+Named by module or alias (good: a call reads os.path.join or np.array, so the source shows)
+    import sys                                     standard library               line 143   used 3x
+    import ast                                     standard library               line 160   used 12x
+    import json                                    standard library               line 161   used 10x
+    import re                                      standard library               line 162   used 2x
+    import subprocess                              standard library               line 163   used 1x
+    import sys                                     standard library               line 164   used 3x
+    import tkinter as tk                           standard library               line 165   used 58x
+    import cpc_ui_theme as ui_theme                third party or your own file   line 186   used 0x
+    import cpc_ui_state as ui_state                third party or your own file   line 190   used 0x
+    import cpc_ui_choices as ui_choices            third party or your own file   line 194   used 2x
+
+Bare names (a call reads Path(...) and does not say it came from pathlib;
+prefer: import pathlib, then pathlib.Path(...), or import pathlib as pl)
+    from pathlib import Path                       standard library               line 142   used 28x
+    from datetime import datetime                  standard library               line 166   used 7x
+    from pathlib import Path                       standard library               line 167   used 28x
+    from tkinter import filedialog                 standard library               line 169   used 8x
+    from tkinter import messagebox                 standard library               line 169   used 50x
+    from tkinter import ttk                        standard library               line 169   used 151x
+    from tkinter import font as tkfont             standard library               line 170   used 1x
+    from tkinterdnd2 import TkinterDnD             third party or your own file   line 173   used 2x
+    from tkinterdnd2 import DND_FILES              third party or your own file   line 173   used 2x
+    from PIL import Image                          third party or your own file   line 178   used 11x
+    from PIL import ImageOps                       third party or your own file   line 178   used 3x
+    from PIL import ImageTk                        third party or your own file   line 178   used 2x
+    from PIL import PngImagePlugin                 third party or your own file   line 178   used 1x
+    from cc_poster_data import load_poster_records third party or your own file   line 180   used 1x
+    from cc_poster_data import poster_record_from_document third party or your own file   line 180   used 1x
+    from cc_poster_data import read_posters_py     third party or your own file   line 180   used 1x
+    from cc_poster_data import save_poster_record as persist_poster_record third party or your own file   line 180   used 2x
+    from cc_poster_data import delete_poster_record as persist_delete_poster_record third party or your own file   line 180   used 2x
+    from cc_poster_data import backup_poster_data  third party or your own file   line 180   used 0x
+    from cc_song_data import load_song_records as shared_load_song_records third party or your own file   line 182   used 1x
+    from cc_song_data import song_record_from_document as shared_song_record_from_document third party or your own file   line 182   used 1x
+    from gateway_controller import GatewayController third party or your own file   line 183   used 1x
+    from cpc_ui_theme import apply_theme           third party or your own file   line 199   used 2x
+    from cpc_ui_theme import normalize_theme_name  third party or your own file   line 199   used 4x
+    from cpc_ui_theme import theme_names           third party or your own file   line 199   used 1x
+    from cpc_ui_theme import density_names         third party or your own file   line 199   used 1x
+    from cpc_ui_theme import normalize_density_name third party or your own file   line 199   used 3x
+    from cpc_ui_theme import apply_app_icon        third party or your own file   line 199   used 1x
+    from cpc_ui_theme import theme_palette         third party or your own file   line 199   used 2x
+    from cpc_ui_state import select_tab_by_text    third party or your own file   line 203   used 2x
+    from cpc_ui_state import current_tab_text      third party or your own file   line 203   used 2x
+    from cpc_treeviews import TreeviewMixin        third party or your own file   line 204   used 1x
+    from cpc_treeviews import add_export_buttons   third party or your own file   line 204   used 3x
+    from pymongo import MongoClient                third party or your own file   line 207   used 8x
+    from PIL import ImageGrab                      third party or your own file   line 1549  used 1x
+    from urllib.request import Request             standard library               line 1566  used 1x
+    from urllib.request import urlopen             standard library               line 1566  used 1x
+
+Star imports (names cannot be traced to a file)
+    none
+
+Imported but never used (may be re-exported)
+    from cc_poster_data import backup_poster_data    line 180
+    import cpc_ui_theme as ui_theme    line 186
+    import cpc_ui_state as ui_state    line 190

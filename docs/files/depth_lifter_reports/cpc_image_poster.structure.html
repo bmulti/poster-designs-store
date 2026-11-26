@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cpc_image_poster structure</title>
+<style id="cpc-code-css">
+:root{--code-font:'JetBrains Mono','Cascadia Code','Fira Code',Consolas,Menlo,monospace;--code-size:13px;--code-lh:1.55;--tab:4;--maxw:1300px}
+html[data-mode="projector"]{--code-size:22px;--code-lh:1.6;--maxw:none}
+html[data-theme="light"]{--page:#ffffff;--text:#1f2328;--panel:#f6f8fa;--border:#d0d7de;--muted:#59636e;--link:#0969da;--accent:#0969da;--on-accent:#ffffff;--shadow:0 1px 2px rgba(31,35,40,.06),0 4px 14px rgba(31,35,40,.06);--keyword:#cf222e;--builtin:#0550ae;--string:#0a3069;--comment:#6a737d;--number:#0550ae;--operator:#24292f;--definition:#8250df;--decorator:#953800}
+html[data-theme="dark"]{--page:#0d1117;--text:#e6edf3;--panel:#161b22;--border:#30363d;--muted:#8b949e;--link:#58a6ff;--accent:#1f6feb;--on-accent:#ffffff;--shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.35);--keyword:#ff7b72;--builtin:#79c0ff;--string:#a5d6ff;--comment:#8b949e;--number:#79c0ff;--operator:#e6edf3;--definition:#d2a8ff;--decorator:#ffa657}
+
+
+/* cpc_code_html_template.css
+   Page and code-card styles for the published source pages.
+
+   OPTIONAL: if this file is missing it is re-created from the copy built into
+   cpc_treeviews.py; if it is present, it is used exactly as written.
+
+   It is placed AFTER the generated theme/root variables (--page, --text,
+   --code-size ...), so a rule or variable here overrides them, e.g.
+       :root { --code-size: 15px; }
+       html[data-theme='dark'] { --accent: #f78166; }
+*/
+html {
+  color-scheme: light;
+}
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+html[data-mode='projector'][data-theme='light'] {
+  --page: #ffffff;
+  --text: #000000;
+  --muted: #2f3640;
+  --border: #9aa4b2;
+}
+html[data-mode='projector'][data-theme='dark'] {
+  --page: #000000;
+  --text: #ffffff;
+  --panel: #0b0f14;
+  --muted: #c9d1d9;
+  --border: #586374;
+}
+body {
+  background: var(--page);
+  color: var(--text);
+  font:
+    15px/1.6 system-ui,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  margin: 0;
+  padding: 0 26px 48px;
+  -webkit-font-smoothing: antialiased;
+}
+html[data-mode='projector'] body {
+  font-size: 20px;
+}
+#cpc-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin: 0 -26px;
+  padding: 9px 26px;
+  background: var(--page);
+  background: color-mix(in srgb, var(--page) 88%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.cpc-bar-in {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.cpc-logo {
+  height: 26px;
+  width: auto;
+  border-radius: 5px;
+  display: block;
+}
+.cpc-home {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 4px 2px;
+}
+.cpc-home:hover {
+  color: var(--link);
+}
+.cpc-grow {
+  flex: 1;
+}
+.cpc-btn {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 11px;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.3;
+  cursor: pointer;
+  transition:
+    background 0.12s,
+    border-color 0.12s;
+}
+.cpc-btn:hover {
+  border-color: var(--accent);
+}
+.cpc-btn[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.cpc-btn:focus-visible,
+.cpc-copy:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.cpc-seg {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.cpc-seg .cpc-btn {
+  border: 0;
+  border-radius: 0;
+  border-left: 1px solid var(--border);
+}
+.cpc-seg .cpc-btn:first-child {
+  border-left: 0;
+}
+main {
+  max-width: var(--maxw);
+  margin: 22px auto;
+}
+h1 {
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+  margin: 12px 0 6px;
+}
+h2 {
+  font-size: 1.1rem;
+  margin: 22px 0 8px;
+}
+a {
+  color: var(--link);
+}
+.meta {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.report {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  font-family: var(--code-font);
+  font-size: calc(var(--code-size) + var(--code-delta, 0px));
+  line-height: var(--code-lh);
+  tab-size: var(--tab);
+}
+.cpc-card {
+  margin: 14px 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.cpc-card[hidden] {
+  display: none;
+}
+.cpc-card.code {
+  margin-left: 36px;
+}
+.cpc-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px 5px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font:
+    600 11px/1.2 system-ui,
+    sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cpc-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.cpc-copy:hover {
+  color: var(--text);
+  border-color: var(--border);
+  background: var(--page);
+}
+.cpc-copy.done {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.cpc-card pre.source {
+  margin: 0;
+  padding: 10px 0;
+  overflow: auto;
+  background: transparent;
+  border: 0;
+  font-family: var(--code-font);
+  font-size: calc(var(--code-size) + var(--code-delta, 0px));
+  line-height: var(--code-lh);
+  tab-size: var(--tab);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.cpc-card code {
+  font: inherit;
+}
+.source-line {
+  display: block;
+  white-space: pre;
+  padding: 0 16px 0 0;
+  border-left: 3px solid transparent;
+  scroll-margin-top: 96px;
+}
+.source-line:target {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-left-color: var(--accent);
+}
+.line-number {
+  display: inline-block;
+  box-sizing: content-box;
+  width: var(--gut, 3ch);
+  padding: 0 10px 0 12px;
+  margin-right: 14px;
+  text-align: right;
+  border-right: 1px solid var(--border);
+  color: var(--muted);
+  user-select: none;
+  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+}
+a.line-number:hover {
+  color: var(--link);
+}
+html[data-lines='off'] .line-number {
+  display: none;
+}
+html[data-lines='off'] .source-line {
+  padding-left: 16px;
+}
+html[data-wrap='on'] .source-line {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.tok-keyword {
+  color: var(--keyword);
+  font-weight: 600;
+}
+.tok-builtin {
+  color: var(--builtin);
+}
+.tok-string {
+  color: var(--string);
+}
+.tok-comment {
+  color: var(--comment);
+  font-style: italic;
+}
+.tok-number {
+  color: var(--number);
+}
+.tok-operator {
+  color: var(--operator);
+}
+.tok-definition {
+  color: var(--definition);
+  font-weight: 600;
+}
+.tok-decorator {
+  color: var(--decorator);
+}
+.index-list {
+  columns: 2;
+  column-width: 270px;
+  padding-left: 22px;
+}
+.index-list li {
+  break-inside: avoid;
+  margin: 2px 0;
+}
+.index-list a {
+  overflow-wrap: anywhere;
+}
+.index-list small {
+  color: var(--muted);
+}
+html[data-mode='projector'] nav[aria-label='Definitions'] {
+  display: none;
+}
+#cpc-filter {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 420px;
+  margin: 10px 0 4px;
+  padding: 8px 12px;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+#cpc-filter:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+#nav,
+#bottom-nav {
+  display: none;
+}
+@media (max-width: 650px) {
+  :root {
+    --code-size: 12px;
+  }
+  body {
+    padding: 0 10px 32px;
+  }
+  #cpc-bar {
+    margin: 0 -10px;
+    padding: 8px 10px;
+  }
+  .index-list {
+    columns: 1;
+  }
+  .cpc-card.code {
+    margin-left: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media print {
+  #cpc-bar {
+    display: none;
+  }
+  body {
+    padding: 0;
+  }
+  .cpc-card {
+    box-shadow: none;
+  }
+  .cpc-copy {
+    display: none;
+  }
+}
+
+</style>
+<script id="cpc-code-js">
+
+/* cpc_code_html_template.js
+   Control bar (theme / projector / size / lines / wrap / reset), copy buttons
+   and keyboard shortcuts (t, p, /) for the published source pages.
+
+   OPTIONAL: if this file is missing it is re-created from the copy built into
+   cpc_treeviews.py; if it is present, it is used exactly as written.
+
+   Keep the config placeholder on the first 'var C =' line: it is replaced with
+   the page's config (theme, mode, logo, index_href ...) when the page is built.
+*/
+(function () {
+  var C = {"theme": "light", "mode": "normal", "line_numbers": true, "wrap": false, "logo": "logo.png", "host_address": "", "index_href": "index.html", "storage_key": "cpc_code_view"},
+    KEY = C.storage_key,
+    root = document.documentElement;
+  var S = { theme: C.theme, mode: C.mode, delta: 0, lines: C.line_numbers, wrap: C.wrap };
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (raw) {
+        var o = JSON.parse(raw);
+        for (var k in S) {
+          if (o && o[k] !== undefined) S[k] = o[k];
+        }
+      } else {
+        var old = localStorage.getItem('depth_lifter_html_theme');
+        if (old === 'light' || old === 'dark') S.theme = old;
+      }
+    } catch (e) {}
+  }
+  function save() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(S));
+    } catch (e) {}
+  }
+  function apply() {
+    root.dataset.theme = S.theme === 'dark' ? 'dark' : 'light';
+    root.dataset.mode = S.mode === 'projector' ? 'projector' : 'normal';
+    root.dataset.lines = S.lines ? 'on' : 'off';
+    root.dataset.wrap = S.wrap ? 'on' : 'off';
+    root.style.setProperty('--code-delta', S.delta + 'px');
+    var P = {
+      'theme:light': S.theme !== 'dark',
+      'theme:dark': S.theme === 'dark',
+      projector: S.mode === 'projector',
+      lines: !!S.lines,
+      wrap: !!S.wrap,
+    };
+    var bs = document.querySelectorAll('[data-cpc]');
+    for (var i = 0; i < bs.length; i++) {
+      var k = bs[i].dataset.cpc;
+      if (k in P) bs[i].setAttribute('aria-pressed', String(P[k]));
+    }
+  }
+  function act(n) {
+    if (n === 'theme:light' || n === 'theme:dark') S.theme = n.slice(6);
+    else if (n === 'projector') S.mode = S.mode === 'projector' ? 'normal' : 'projector';
+    else if (n === 'lines') S.lines = !S.lines;
+    else if (n === 'wrap') S.wrap = !S.wrap;
+    else if (n === 'bigger') S.delta = Math.min(S.delta + 1, 20);
+    else if (n === 'smaller') S.delta = Math.max(S.delta - 1, -4);
+    else if (n === 'reset') {
+      S.theme = C.theme;
+      S.mode = C.mode;
+      S.delta = 0;
+      S.lines = C.line_numbers;
+      S.wrap = C.wrap;
+      try {
+        localStorage.removeItem(KEY);
+      } catch (e) {}
+      apply();
+      return;
+    }
+    apply();
+    save();
+  }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function btn(label, name, title, parent) {
+    var b = el('button', 'cpc-btn', label);
+    b.type = 'button';
+    b.dataset.cpc = name;
+    b.title = title || label;
+    b.addEventListener('click', function () {
+      act(name);
+    });
+    parent.appendChild(b);
+    return b;
+  }
+  function url(p) {
+    return C.host_address ? C.host_address.replace(/\/+$/, '') + '/' + p.replace(/^\/+/, '') : p;
+  }
+  function build() {
+    var bar = document.getElementById('cpc-bar');
+    if (!bar) return;
+    bar.textContent = '';
+    var row = el('div', 'cpc-bar-in');
+    if (C.logo) {
+      var img = el('img', 'cpc-logo');
+      img.alt = '';
+      img.src = url(C.logo);
+      img.addEventListener('error', function () {
+        img.remove();
+      });
+      if (C.index_href) {
+        var la = el('a');
+        la.href = url(C.index_href);
+        la.appendChild(img);
+        row.appendChild(la);
+      } else row.appendChild(img);
+    }
+    if (C.index_href) {
+      var h = el('a', 'cpc-home', '\u2190 Index');
+      h.href = url(C.index_href);
+      row.appendChild(h);
+    }
+    row.appendChild(el('span', 'cpc-grow'));
+    var seg = el('span', 'cpc-seg');
+    btn('Light', 'theme:light', 'Light theme (t)', seg);
+    btn('Dark', 'theme:dark', 'Dark theme (t)', seg);
+    row.appendChild(seg);
+    btn('Projector', 'projector', 'Projector mode (p)', row);
+    var sz = el('span', 'cpc-seg');
+    btn('A\u2212', 'smaller', 'Smaller code', sz);
+    btn('A+', 'bigger', 'Larger code', sz);
+    row.appendChild(sz);
+    if (document.querySelector('.source-line')) {
+      btn('# Lines', 'lines', 'Line numbers', row);
+      btn('Wrap', 'wrap', 'Wrap long lines', row);
+    }
+    btn('Reset', 'reset', 'Back to the page defaults', row);
+    bar.appendChild(row);
+    apply();
+  }
+  function cardText(card) {
+    var pre = card.querySelector('pre');
+    if (!pre) return card.textContent;
+    var rows = pre.querySelectorAll('.source-line');
+    if (!rows.length) return pre.textContent;
+    return Array.prototype.map
+      .call(rows, function (r) {
+        var c = r.cloneNode(true),
+          n = c.querySelector('.line-number');
+        if (n) n.remove();
+        return c.textContent;
+      })
+      .join('\n');
+  }
+  function fallback(t, ok) {
+    var a = document.createElement('textarea');
+    a.value = t;
+    a.style.position = 'fixed';
+    a.style.opacity = '0';
+    document.body.appendChild(a);
+    a.select();
+    try {
+      if (document.execCommand('copy')) ok();
+    } catch (e) {}
+    document.body.removeChild(a);
+  }
+  function copyText(t, b) {
+    function ok() {
+      b.classList.add('done');
+      b.title = 'Copied';
+      setTimeout(function () {
+        b.classList.remove('done');
+        b.title = 'Copy code';
+      }, 1200);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText)
+      navigator.clipboard.writeText(t).then(ok, function () {
+        fallback(t, ok);
+      });
+    else fallback(t, ok);
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.cpc-copy');
+    if (!b) return;
+    var card = b.closest('.cpc-card');
+    if (card) copyText(cardText(card), b);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    if (e.key === 't') act(S.theme === 'dark' ? 'theme:light' : 'theme:dark');
+    else if (e.key === 'p') act('projector');
+    else if (e.key === '/') {
+      var f = document.getElementById('cpc-filter');
+      if (f) {
+        e.preventDefault();
+        f.focus();
+      }
+    }
+  });
+  window.chooseTheme = function (t) {
+    act('theme:' + (t === 'dark' ? 'dark' : 'light'));
+  };
+  load();
+  apply();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
+  else build();
+})();
+
+</script>
+<style id="page-css">.structure-table{overflow-x:auto;margin-top:16px}.structure-table table{border-collapse:collapse;width:100%;font-size:13px}.structure-table th,.structure-table td{border:1px solid var(--border);padding:5px 9px;text-align:left;vertical-align:top}.structure-table th{background:var(--panel);white-space:nowrap}.structure-table tbody tr:nth-child(even){background:var(--panel)}</style></head><body><header id="cpc-bar"></header><div id="nav" hidden></div><main><h1>cpc_image_poster structure</h1><div class="structure-table"><table><thead><tr><th>Depth</th><th>Type</th><th>Name</th><th>Parameters</th><th>Returns</th><th>Decorators</th><th>Line</th><th>End</th><th>Parent</th></tr></thead><tbody><tr><td>1</td><td>def</td><td>__init__</td><td>self, master, embedded=False, host_context=None</td><td></td><td></td><td>679</td><td>826</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_apply_poster_filter_and_sort</td><td>self</td><td></td><td></td><td>3036</td><td>3070</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_apply_song_filter_and_sort</td><td>self</td><td></td><td></td><td>3135</td><td>3159</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_apply_ui_theme_choice</td><td>self</td><td></td><td></td><td>1276</td><td>1318</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_build_file_browser_tab</td><td>self</td><td></td><td></td><td>1838</td><td>1912</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_build_in</td><td>self, container</td><td></td><td></td><td>963</td><td>1019</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_build_notes_tab</td><td>self</td><td></td><td></td><td>1048</td><td>1201</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_build_poster_designs_tab</td><td>self</td><td></td><td></td><td>2244</td><td>2349</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_build_poster_tab</td><td>self</td><td></td><td></td><td>1320</td><td>1353</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_build_settings_tab</td><td>self</td><td></td><td></td><td>1601</td><td>1836</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_build_songs_data_tab</td><td>self</td><td></td><td></td><td>2581</td><td>2620</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_build_ui_choices_tab</td><td>self</td><td></td><td></td><td>1203</td><td>1267</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_capture_current_window_size</td><td>self</td><td></td><td></td><td>1269</td><td>1274</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_choose_config_directory</td><td>self, variable, title, default_path</td><td></td><td></td><td>2139</td><td>2147</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_clean_tag_name</td><td>self, raw</td><td></td><td></td><td>2177</td><td>2187</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_clear_poster_search</td><td>self</td><td></td><td></td><td>2351</td><td>2352</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>_compact_text</td><td>value</td><td></td><td></td><td>278</td><td>279</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>_compact_text</td><td>value</td><td></td><td>@staticmethod</td><td>2650</td><td>2651</td><td>ImageSidekick</td></tr>
+<tr><td>2</td><td>def</td><td>_config_mousewheel</td><td>event</td><td></td><td></td><td>1619</td><td>1621</td><td>_build_settings_tab</td></tr>
+<tr><td>1</td><td>def</td><td>_configured_directory</td><td>self, variable, default_path, create=False</td><td></td><td></td><td>2149</td><td>2154</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>_display_text</td><td>value</td><td></td><td></td><td>265</td><td>275</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>_display_text</td><td>value</td><td></td><td>@staticmethod</td><td>2637</td><td>2647</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_drop_poster_image_file</td><td>self, event</td><td></td><td></td><td>1536</td><td>1541</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_export_json_documents</td><td>self, documents, default_name</td><td></td><td></td><td>3178</td><td>3210</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_finish_poster_selection_restore</td><td>self</td><td></td><td></td><td>3107</td><td>3108</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>_first_field</td><td>document, names, default=&#x27;&#x27;</td><td></td><td></td><td>282</td><td>292</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>_first_field</td><td>document, names, default=&#x27;&#x27;</td><td></td><td>@staticmethod</td><td>2623</td><td>2634</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_format_file_size</td><td>size</td><td></td><td>@staticmethod</td><td>1915</td><td>1922</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_get_selected_poster_record</td><td>self</td><td></td><td></td><td>2372</td><td>2386</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_goto_tab</td><td>self, name</td><td></td><td></td><td>1044</td><td>1046</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_load_app_icon</td><td>self</td><td></td><td></td><td>924</td><td>931</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_load_config</td><td>self</td><td></td><td></td><td>843</td><td>855</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_load_poster_image</td><td>self, number</td><td></td><td></td><td>1583</td><td>1592</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_load_poster_record_into_editor</td><td>self, record, switch_tab=False, load_image=True</td><td></td><td></td><td>1356</td><td>1372</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_mixed_number_key</td><td>value</td><td></td><td>@staticmethod</td><td>3018</td><td>3034</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>_mongo_backup_posters</td><td>collection, backup_dir, label=&#x27;pre-import&#x27;</td><td></td><td></td><td>440</td><td>452</td><td></td></tr>
+<tr><td>0</td><td>def</td><td>_mongo_import_posters_overwrite</td><td>*, mongo_uri, database_name, collection_name, records, backup_dir</td><td></td><td></td><td>455</td><td>515</td><td></td></tr>
+<tr><td>0</td><td>def</td><td>_mongo_repair_duplicate_posters</td><td>*, mongo_uri, database_name, collection_name, backup_dir</td><td></td><td></td><td>558</td><td>596</td><td></td></tr>
+<tr><td>0</td><td>def</td><td>_mongo_scan_poster_references</td><td>*, mongo_uri, database_name, collection_name</td><td></td><td></td><td>518</td><td>555</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>_notify_host_tags_changed</td><td>self</td><td></td><td></td><td>2196</td><td>2197</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_on_poster_row_selected</td><td>self, event=None</td><td></td><td></td><td>2440</td><td>2458</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_on_poster_search_change</td><td>self, *args</td><td></td><td></td><td>3012</td><td>3015</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_on_poster_search_field_change</td><td>self, *args</td><td></td><td></td><td>2359</td><td>2370</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_on_song_search_change</td><td>self, *args</td><td></td><td></td><td>3130</td><td>3133</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_on_tab_changed</td><td>self, event=None</td><td></td><td></td><td>1021</td><td>1042</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_open_selected_browser_directory</td><td>self, event=None</td><td></td><td></td><td>1953</td><td>1965</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_open_selected_poster</td><td>self, event=None</td><td></td><td></td><td>2388</td><td>2432</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_populate_poster_tree</td><td>self</td><td></td><td></td><td>3072</td><td>3105</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_populate_song_tree</td><td>self</td><td></td><td></td><td>3161</td><td>3176</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_poster_backup_dir</td><td>self, create=False</td><td></td><td></td><td>2159</td><td>2160</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>_poster_doc_ref</td><td>document</td><td></td><td></td><td>344</td><td>352</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>_poster_export_dir</td><td>self, create=False</td><td></td><td></td><td>2162</td><td>2163</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_poster_export_payload</td><td>self</td><td></td><td></td><td>2676</td><td>2685</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_poster_image_path</td><td>self, number</td><td></td><td></td><td>1571</td><td>1581</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>_poster_import_record</td><td>document</td><td></td><td></td><td>355</td><td>372</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>_poster_persistence_args</td><td>self</td><td></td><td></td><td>1381</td><td>1388</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_poster_record_from_document</td><td>self, document</td><td></td><td></td><td>2653</td><td>2654</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>_poster_ref_key</td><td>value</td><td></td><td></td><td>318</td><td>341</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>_poster_samples_dir</td><td>self, create=False</td><td></td><td></td><td>2156</td><td>2157</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_poster_snapshot_payload</td><td>self</td><td></td><td></td><td>1390</td><td>1398</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_poster_source_changed</td><td>self</td><td></td><td></td><td>2933</td><td>2935</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_poster_text_value</td><td>self</td><td></td><td></td><td>1355</td><td>1355</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_read_mongo_collection</td><td>self, collection_name</td><td></td><td></td><td>2661</td><td>2668</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>_read_poster_import_file</td><td>path</td><td></td><td></td><td>375</td><td>437</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>_read_posters_py</td><td>self</td><td></td><td></td><td>2656</td><td>2659</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_records_from_import_json</td><td>data</td><td></td><td>@staticmethod</td><td>2718</td><td>2741</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_records_from_import_py</td><td>path</td><td></td><td>@staticmethod</td><td>2744</td><td>2761</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_redraw_poster_design_previews</td><td>self</td><td></td><td></td><td>2527</td><td>2569</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_refresh_poster_design_previews</td><td>self</td><td></td><td></td><td>2486</td><td>2525</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_rename_sample_image</td><td>self, old, new</td><td></td><td></td><td>1509</td><td>1518</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_resize_poster_image</td><td>self, event=None</td><td></td><td></td><td>1594</td><td>1599</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_rewrite_image_without_metadata</td><td>source, copyright_notice=&#x27;&#x27;</td><td></td><td>@staticmethod</td><td>2098</td><td>2137</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_run_poster_preview_refresh</td><td>self</td><td></td><td></td><td>2460</td><td>2462</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_save_poster_image_from_path</td><td>self, path</td><td></td><td></td><td>1519</td><td>1530</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_select_poster_row_offset</td><td>self, offset</td><td></td><td></td><td>2464</td><td>2484</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_set_title_status</td><td>self, text=&#x27;&#x27;</td><td></td><td></td><td>916</td><td>922</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>_shared_config</td><td>config_path=None</td><td></td><td></td><td>221</td><td>229</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>_show_import_progress</td><td>self, message, current=0, total=0</td><td></td><td></td><td>2763</td><td>2777</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_show_poster_record</td><td>self, record</td><td></td><td></td><td>1374</td><td>1375</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_toggle_poster_auto_copy</td><td>self</td><td></td><td></td><td>2434</td><td>2438</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_toggle_poster_search_field</td><td>self</td><td></td><td></td><td>2354</td><td>2357</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_validate_saved_poster_number</td><td>self</td><td></td><td></td><td>2988</td><td>3010</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_validated_window_size</td><td>self</td><td></td><td></td><td>828</td><td>841</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_write_configured_poster_backup</td><td>self, prefix=&#x27;posters-backup&#x27;</td><td></td><td></td><td>1400</td><td>1408</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>_write_poster_export</td><td>self, path</td><td></td><td></td><td>2687</td><td>2693</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>add_managed_tag</td><td>self</td><td></td><td></td><td>2199</td><td>2217</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>add_poster_record</td><td>self</td><td></td><td></td><td>1410</td><td>1430</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>attach</td><td>parent, context=None</td><td></td><td></td><td>3231</td><td>3233</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>backup_posters</td><td>self</td><td></td><td></td><td>1470</td><td>1477</td><td>ImageSidekick</td></tr>
+<tr><td>2</td><td>def</td><td>body</td><td>value</td><td></td><td></td><td>1087</td><td>1088</td><td>_build_notes_tab</td></tr>
+<tr><td>1</td><td>def</td><td>browser_go_up</td><td>self</td><td></td><td></td><td>1943</td><td>1951</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>choose_browser_directory</td><td>self</td><td></td><td></td><td>1924</td><td>1941</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>choose_directory</td><td>self</td><td></td><td></td><td>2165</td><td>2172</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>choose_poster_image_file</td><td>self</td><td></td><td></td><td>1532</td><td>1534</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>choose_posters_py</td><td>self</td><td></td><td></td><td>2937</td><td>2956</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>clean_selected_image_metadata</td><td>self, add_copyright=False</td><td></td><td></td><td>2046</td><td>2095</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>clear_poster_data</td><td>self</td><td></td><td></td><td>2880</td><td>2931</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>close_sidekick</td><td>self</td><td></td><td></td><td>954</td><td>961</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>copy_poster_inst_to_clipboard</td><td>self</td><td></td><td></td><td>1378</td><td>1380</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>copy_poster_to_clipboard</td><td>self</td><td></td><td></td><td>1376</td><td>1377</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>copy_selected_poster_inst</td><td>self, silent=False</td><td></td><td></td><td>2571</td><td>2579</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>delete_managed_tag</td><td>self</td><td></td><td></td><td>2219</td><td>2242</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>delete_poster_record</td><td>self</td><td></td><td></td><td>1479</td><td>1507</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>export_active_posters_to_json</td><td>self</td><td></td><td></td><td>3219</td><td>3229</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>export_poster_data_json</td><td>self</td><td></td><td></td><td>2695</td><td>2715</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>export_posters_py_to_json</td><td>self</td><td></td><td></td><td>3212</td><td>3217</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>first</td><td>*names</td><td></td><td></td><td>359</td><td>364</td><td>_poster_import_record</td></tr>
+<tr><td>0</td><td>class</td><td>ImageSidekick</td><td>TreeviewMixin</td><td></td><td></td><td>643</td><td>3229</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>import_poster_data_json</td><td>self</td><td></td><td></td><td>2779</td><td>2835</td><td>ImageSidekick</td></tr>
+<tr><td>2</td><td>def</td><td>link</td><td>value, tab_name</td><td></td><td></td><td>1090</td><td>1096</td><td>_build_notes_tab</td></tr>
+<tr><td>0</td><td>def</td><td>load_song_records</td><td>config_path=None</td><td></td><td></td><td>314</td><td>316</td><td></td></tr>
+<tr><td>0</td><td>def</td><td>main</td><td></td><td></td><td></td><td>3236</td><td>3245</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>open_tagger</td><td>self</td><td></td><td></td><td>933</td><td>942</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>paste_poster_image</td><td>self</td><td></td><td></td><td>1543</td><td>1560</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>read_mongo_collection</td><td>config_path, collection_name</td><td></td><td></td><td>232</td><td>262</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>read_mongo_collection</td><td>self, collection_name</td><td></td><td></td><td>2670</td><td>2671</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>refresh_database_tabs</td><td>self</td><td></td><td></td><td>2958</td><td>2960</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>refresh_file_browser</td><td>self</td><td></td><td></td><td>1967</td><td>2044</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>refresh_managed_tag_list</td><td>self</td><td></td><td></td><td>2189</td><td>2194</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>refresh_poster_designs</td><td>self</td><td></td><td></td><td>2962</td><td>2986</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>refresh_songs_data</td><td>self</td><td></td><td></td><td>3110</td><td>3128</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>reload_directory</td><td>self</td><td></td><td></td><td>2174</td><td>2175</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>repair_duplicate_posters</td><td>self</td><td></td><td></td><td>2837</td><td>2878</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>save_config</td><td>self</td><td></td><td></td><td>898</td><td>908</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>save_config_from_button</td><td>self</td><td></td><td></td><td>910</td><td>914</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>save_web_image_sample</td><td>self</td><td></td><td></td><td>1562</td><td>1570</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>shutdown</td><td>self</td><td></td><td></td><td>944</td><td>952</td><td>ImageSidekick</td></tr>
+<tr><td>0</td><td>def</td><td>song_record_from_document</td><td>document</td><td></td><td></td><td>295</td><td>311</td><td></td></tr>
+<tr><td>1</td><td>def</td><td>song_record_from_document</td><td>self, document</td><td></td><td></td><td>2673</td><td>2674</td><td>ImageSidekick</td></tr>
+<tr><td>1</td><td>def</td><td>sync_config_to_dict</td><td>self</td><td></td><td></td><td>857</td><td>896</td><td>ImageSidekick</td></tr>
+<tr><td>2</td><td>def</td><td>title</td><td>value</td><td></td><td></td><td>1084</td><td>1085</td><td>_build_notes_tab</td></tr>
+<tr><td>1</td><td>def</td><td>update_poster_record</td><td>self</td><td></td><td></td><td>1432</td><td>1468</td><td>ImageSidekick</td></tr></tbody></table></div></main><div id="bottom-nav" hidden></div><script></script></body></html>

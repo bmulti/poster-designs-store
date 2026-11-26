@@ -1,0 +1,1405 @@
+source_file = cpc_image_poster.py
+source_modified = 2026-11-20 04:39:31
+function()    first line;  -> what it calls    (where that comes from)    xN = times
+
+_compact_text()    278
+    -> ' '.join    (method or call on an expression)
+    -> _display_text    (this file, line 265)
+    -> _display_text(value).split    (method or call on an expression)
+_display_text()    265
+    -> ', '.join    (method or call on an expression)
+    -> isinstance    (builtin)    x2
+    -> json.dumps    (import json)
+    -> str    (builtin)    x3
+_first_field()    282
+    -> document.get    (local variable or parameter)
+    -> document.keys    (local variable or parameter)
+    -> isinstance    (builtin)
+    -> lower_map.get    (local variable or parameter)
+    -> str    (builtin)    x2
+    -> str(key).lower    (method or call on an expression)
+    -> str(name).lower    (method or call on an expression)
+_mongo_backup_posters()    440
+    -> backup_dir.mkdir    (local variable or parameter)
+    -> collection.find    (local variable or parameter)
+    -> cursor.sort    (local variable or parameter)
+    -> datetime.now    (from datetime import datetime)
+    -> datetime.now().strftime    (method or call on an expression)
+    -> json.dumps    (import json)
+    -> list    (builtin)
+    -> Path    (from pathlib import Path)
+    -> path.write_text    (local variable or parameter)
+_mongo_import_posters_overwrite()    455
+    -> _mongo_backup_posters    (this file, line 440)
+    -> _poster_doc_ref    (this file, line 344)
+    -> _poster_import_record    (this file, line 355)
+    -> _poster_ref_key    (this file, line 318)
+    -> by_ref.get    (local variable or parameter)
+    -> by_ref.setdefault    (local variable or parameter)
+    -> by_ref.setdefault(ref, []).append    (method or call on an expression)
+    -> client.admin.command    (local variable or parameter)
+    -> client.close    (local variable or parameter)
+    -> collection.delete_many    (local variable or parameter)
+    -> collection.insert_one    (local variable or parameter)
+    -> collection.update_one    (local variable or parameter)
+    -> dict    (builtin)    x2
+    -> doc.get    (local variable or parameter)
+    -> int    (builtin)
+    -> keeper.update    (local variable or parameter)
+    -> list    (builtin)
+    -> MongoClient    (from pymongo import MongoClient)
+    -> record.get    (local variable or parameter)    x3
+    -> RuntimeError    (builtin)
+    -> str    (builtin)    x3
+_mongo_repair_duplicate_posters()    558
+    -> _mongo_backup_posters    (this file, line 440)
+    -> _poster_doc_ref    (this file, line 344)
+    -> client.admin.command    (local variable or parameter)
+    -> client.close    (local variable or parameter)
+    -> collection.delete_many    (local variable or parameter)
+    -> collection.find    (local variable or parameter)
+    -> collection.update_one    (local variable or parameter)
+    -> cursor.sort    (local variable or parameter)
+    -> doc.get    (local variable or parameter)
+    -> duplicates.items    (local variable or parameter)
+    -> groups.items    (local variable or parameter)
+    -> groups.setdefault    (local variable or parameter)
+    -> groups.setdefault(ref, []).append    (method or call on an expression)
+    -> int    (builtin)
+    -> len    (builtin)    x2
+    -> list    (builtin)
+    -> MongoClient    (from pymongo import MongoClient)
+    -> RuntimeError    (builtin)
+    -> str    (builtin)
+_mongo_scan_poster_references()    518
+    -> _poster_doc_ref    (this file, line 344)
+    -> client.admin.command    (local variable or parameter)
+    -> client.close    (local variable or parameter)
+    -> collection.find    (local variable or parameter)
+    -> duplicate_groups.items    (local variable or parameter)
+    -> duplicate_groups.values    (local variable or parameter)
+    -> groups.items    (local variable or parameter)
+    -> groups.setdefault    (local variable or parameter)
+    -> groups.setdefault(ref, []).append    (method or call on an expression)
+    -> groups.values    (local variable or parameter)
+    -> len    (builtin)    x8
+    -> list    (builtin)
+    -> MongoClient    (from pymongo import MongoClient)
+    -> RuntimeError    (builtin)
+    -> sorted    (builtin)
+    -> sum    (builtin)    x2
+    -> unkeyed.append    (local variable or parameter)
+_poster_doc_ref()    344
+    -> _poster_ref_key    (this file, line 318)
+    -> document.get    (local variable or parameter)
+    -> document.keys    (local variable or parameter)
+    -> isinstance    (builtin)
+    -> lower.get    (local variable or parameter)
+    -> str    (builtin)
+    -> str(k).casefold    (method or call on an expression)
+_poster_import_record()    355
+    -> _poster_ref_key    (this file, line 318)
+    -> document.keys    (local variable or parameter)
+    -> first    (local variable or parameter)    x3
+    -> isinstance    (builtin)
+    -> str    (builtin)    x3
+    -> str(k).casefold    (method or call on an expression)
+    first()    359
+        -> document.get    (unknown, not imported or defined here)    x2
+        -> lower.get    (unknown, not imported or defined here)
+        -> name.casefold    (local variable or parameter)
+_poster_ref_key()    318
+    -> float    (builtin)
+    -> int    (builtin)    x3
+    -> isinstance    (builtin)    x3
+    -> re.fullmatch    (import re)    x2
+    -> str    (builtin)    x6
+    -> str(value).casefold    (method or call on an expression)
+    -> str(value).strip    (method or call on an expression)
+    -> text.casefold    (local variable or parameter)
+    -> value.is_integer    (local variable or parameter)
+_read_poster_import_file()    375
+    -> (values if name in preferred else fallb…    (method or call on an expression)
+    -> _poster_import_record    (this file, line 355)    x2
+    -> ast.literal_eval    (import ast)
+    -> ast.parse    (import ast)
+    -> isinstance    (builtin)    x12
+    -> json.loads    (import json)
+    -> order.append    (local variable or parameter)
+    -> Path    (from pathlib import Path)
+    -> path.read_text    (local variable or parameter)    x2
+    -> path.suffix.lower    (local variable or parameter)
+    -> raw.get    (local variable or parameter)
+    -> str    (builtin)
+    -> value.get    (local variable or parameter)
+    -> ValueError    (builtin)
+_shared_config()    221
+    -> config.update    (unknown, not imported or defined here)
+    -> isinstance    (builtin)
+    -> json.loads    (import json)
+    -> path.is_file    (unknown, not imported or defined here)
+    -> path.read_text    (unknown, not imported or defined here)
+attach()    3231
+    -> ImageSidekick    (this file, line 643)
+load_song_records()    314
+    -> shared_load_song_records    (from cc_song_data import load_song_records as shared_load_song_records)
+main()    3236
+    -> ImageSidekick    (this file, line 643)
+    -> root.deiconify    (local variable or parameter)
+    -> root.mainloop    (local variable or parameter)
+    -> root.minsize    (local variable or parameter)
+    -> root.title    (local variable or parameter)
+    -> root.withdraw    (local variable or parameter)
+    -> RuntimeError    (builtin)
+    -> TkinterDnD.Tk    (from tkinterdnd2 import TkinterDnD)
+read_mongo_collection()    232
+    -> _shared_config    (this file, line 221)
+    -> client.admin.command    (local variable or parameter)
+    -> client.close    (local variable or parameter)
+    -> client[database_name][collection_name].…    (method or call on an expression)
+    -> config.get    (local variable or parameter)    x2
+    -> list    (builtin)
+    -> MongoClient    (from pymongo import MongoClient)
+    -> str    (builtin)    x3
+    -> str(collection_name).strip    (method or call on an expression)
+    -> str(config.get('mongo_database', 'store…    (method or call on an expression)
+    -> str(config.get('mongo_uri', 'mongodb://…    (method or call on an expression)
+song_record_from_document()    295
+    -> _compact_text    (this file, line 278)    x3
+    -> _first_field    (this file, line 282)    x3
+class ImageSidekick    643-3229
+    __init__()    679
+        -> apply_app_icon    (from cpc_ui_theme import apply_app_icon)
+        -> apply_theme    (from cpc_ui_theme import apply_theme)
+        -> bool    (builtin)    x4
+        -> DEFAULT_POSTER_ROOT_DIR.rstrip    (unknown, not imported or defined here)
+        -> dict    (builtin)    x2
+        -> list    (builtin)
+        -> master.geometry    (local variable or parameter)
+        -> normalize_density_name    (from cpc_ui_theme import normalize_density_name)
+        -> normalize_theme_name    (from cpc_ui_theme import normalize_theme_name)
+        -> Path    (from pathlib import Path)
+        -> Path(__file__).resolve    (method or call on an expression)
+        -> self._build_in    (this class, line 963)
+        -> self._load_config    (this class, line 843)
+        -> self._validated_window_size    (this class, line 828)
+        -> self.config.get    (attribute of self (inherited or set at run time))    x21
+        -> self.config.setdefault    (attribute of self (inherited or set at run time))    x2
+        -> self.DEFAULTS.items    (attribute of self (inherited or set at run time))
+        -> self.host_context.get    (attribute of self (inherited or set at run time))    x4
+        -> self.master.protocol    (attribute of self (inherited or set at run time))
+        -> self.poster_auto_copy_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_search_field_var.trace_add    (attribute of self (inherited or set at run time))
+        -> self.poster_search_var.trace_add    (attribute of self (inherited or set at run time))
+        -> self.song_search_var.trace_add    (attribute of self (inherited or set at run time))
+        -> str    (builtin)    x4
+        -> str(self.config.get('poster_samples_dir…    (method or call on an expression)
+        -> theme_palette    (from cpc_ui_theme import theme_palette)
+        -> tk.BooleanVar    (import tkinter as tk)
+        -> tk.DoubleVar    (import tkinter as tk)
+        -> tk.StringVar    (import tkinter as tk)    x33
+    _apply_poster_filter_and_sort()    3036
+        -> all    (builtin)
+        -> bool    (builtin)
+        -> f'{number_text} {name_text}'.lower    (method or call on an expression)
+        -> filtered.append    (local variable or parameter)
+        -> filtered.sort    (local variable or parameter)    x2
+        -> hasattr    (builtin)    x2
+        -> list    (builtin)
+        -> query.split    (local variable or parameter)
+        -> record.get    (local variable or parameter)    x5
+        -> record.get('inst', '').lower    (method or call on an expression)
+        -> self._mixed_number_key    (this class, line 3018)
+        -> self._populate_poster_tree    (this class, line 3072)
+        -> self.config.get    (attribute of self (inherited or set at run time))    x2
+        -> self.poster_search_field_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_search_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_search_var.get().strip    (method or call on an expression)
+        -> self.poster_search_var.get().strip().lo…    (method or call on an expression)
+        -> str    (builtin)    x3
+        -> str(record.get(column, '')).lower    (method or call on an expression)
+    _apply_song_filter_and_sort()    3135
+        -> ' '.join    (method or call on an expression)
+        -> ' '.join((record.get('title', ''), reco…    (method or call on an expression)
+        -> all    (builtin)
+        -> bool    (builtin)
+        -> filtered.append    (local variable or parameter)
+        -> filtered.sort    (local variable or parameter)
+        -> hasattr    (builtin)
+        -> list    (builtin)
+        -> query.split    (local variable or parameter)
+        -> record.get    (local variable or parameter)    x4
+        -> self._populate_song_tree    (this class, line 3161)
+        -> self.config.get    (attribute of self (inherited or set at run time))    x2
+        -> self.song_search_var.get    (attribute of self (inherited or set at run time))
+        -> self.song_search_var.get().strip    (method or call on an expression)
+        -> self.song_search_var.get().strip().lower    (method or call on an expression)
+        -> str    (builtin)
+        -> str(record.get(column, '')).lower    (method or call on an expression)
+    _apply_ui_theme_choice()    1276
+        -> apply_theme    (from cpc_ui_theme import apply_theme)
+        -> dict    (builtin)
+        -> int    (builtin)    x2
+        -> normalize_density_name    (from cpc_ui_theme import normalize_density_name)
+        -> normalize_theme_name    (from cpc_ui_theme import normalize_theme_name)
+        -> self.host_context.get    (attribute of self (inherited or set at run time))    x2
+        -> self.master.geometry    (attribute of self (inherited or set at run time))
+        -> self.save_config    (this class, line 898)
+        -> self.ui_density_var.get    (attribute of self (inherited or set at run time))
+        -> self.ui_density_var.set    (attribute of self (inherited or set at run time))
+        -> self.ui_theme_status_var.set    (attribute of self (inherited or set at run time))
+        -> self.ui_theme_var.get    (attribute of self (inherited or set at run time))
+        -> self.ui_theme_var.set    (attribute of self (inherited or set at run time))
+        -> self.window_height_var.get    (attribute of self (inherited or set at run time))
+        -> self.window_height_var.get().strip    (method or call on an expression)
+        -> self.window_height_var.set    (attribute of self (inherited or set at run time))
+        -> self.window_width_var.get    (attribute of self (inherited or set at run time))
+        -> self.window_width_var.get().strip    (method or call on an expression)
+        -> self.window_width_var.set    (attribute of self (inherited or set at run time))
+        -> str    (builtin)    x2
+        -> theme_palette    (from cpc_ui_theme import theme_palette)
+    _build_file_browser_tab()    1838
+        -> actions.columnconfigure    (local variable or parameter)
+        -> actions.grid    (local variable or parameter)
+        -> add_export_buttons    (from cpc_treeviews import add_export_buttons)
+        -> body.add    (local variable or parameter)    x2
+        -> body.grid    (local variable or parameter)
+        -> browser_export_bar.grid    (local variable or parameter)
+        -> dirs_frame.columnconfigure    (local variable or parameter)
+        -> dirs_frame.rowconfigure    (local variable or parameter)
+        -> files_frame.columnconfigure    (local variable or parameter)
+        -> files_frame.rowconfigure    (local variable or parameter)
+        -> self.browser_dirs_tree.bind    (attribute of self (inherited or set at run time))
+        -> self.build_treeview    (attribute of self (inherited or set at run time))    x2
+        -> self.clean_selected_image_metadata    (this class, line 2046)    x2
+        -> self.refresh_file_browser    (this class, line 1967)
+        -> tab.columnconfigure    (local variable or parameter)
+        -> tab.rowconfigure    (local variable or parameter)
+        -> top.columnconfigure    (local variable or parameter)    x2
+        -> top.grid    (local variable or parameter)
+        -> ttk.Button    (from tkinter import ttk)    x5
+        -> ttk.Button(actions, text='Clean + Copyr…    (method or call on an expression)
+        -> ttk.Button(actions, text='Remove Metada…    (method or call on an expression)
+        -> ttk.Button(top, text='Browse...', comma…    (method or call on an expression)
+        -> ttk.Button(top, text='Refresh', command…    (method or call on an expression)
+        -> ttk.Button(top, text='Up', command=self…    (method or call on an expression)
+        -> ttk.Entry    (from tkinter import ttk)
+        -> ttk.Entry(top, textvariable=self.browse…    (method or call on an expression)
+        -> ttk.Frame    (from tkinter import ttk)    x3
+        -> ttk.Label    (from tkinter import ttk)    x2
+        -> ttk.Label(actions, textvariable=self.br…    (method or call on an expression)
+        -> ttk.Label(top, text='Folder:').grid    (method or call on an expression)
+        -> ttk.LabelFrame    (from tkinter import ttk)    x2
+        -> ttk.Panedwindow    (from tkinter import ttk)
+    _build_in()    963
+        -> GatewayController    (from gateway_controller import GatewayController)
+        -> int    (builtin)
+        -> len    (builtin)
+        -> select_tab_by_text    (from cpc_ui_state import select_tab_by_text)
+        -> self._build_file_browser_tab    (this class, line 1838)
+        -> self._build_notes_tab    (this class, line 1048)
+        -> self._build_poster_designs_tab    (this class, line 2244)
+        -> self._build_poster_tab    (this class, line 1320)
+        -> self._build_settings_tab    (this class, line 1601)
+        -> self._build_ui_choices_tab    (this class, line 1203)
+        -> self.config.get    (attribute of self (inherited or set at run time))    x4
+        -> self.notebook.add    (attribute of self (inherited or set at run time))    x7
+        -> self.notebook.bind    (attribute of self (inherited or set at run time))
+        -> self.notebook.insert    (attribute of self (inherited or set at run time))
+        -> self.notebook.pack    (attribute of self (inherited or set at run time))
+        -> self.notebook.select    (attribute of self (inherited or set at run time))    x2
+        -> self.notebook.tabs    (attribute of self (inherited or set at run time))
+        -> self.refresh_managed_tag_list    (this class, line 2189)
+        -> str    (builtin)    x2
+        -> str(self.config.get('last_record_id', '…    (method or call on an expression)
+        -> str(self.config.get('last_tab', '') or …    (method or call on an expression)
+        -> ttk.Frame    (from tkinter import ttk)    x7
+        -> ttk.Notebook    (from tkinter import ttk)
+    _build_notes_tab()    1048
+        -> base.cget    (local variable or parameter)
+        -> base.copy    (local variable or parameter)    x2
+        -> bigger    (local variable or parameter)    x2
+        -> body    (local variable or parameter)    x11
+        -> head_font.configure    (local variable or parameter)
+        -> int    (builtin)
+        -> link    (local variable or parameter)    x10
+        -> scroll.grid    (local variable or parameter)
+        -> tab.columnconfigure    (local variable or parameter)
+        -> tab.rowconfigure    (local variable or parameter)
+        -> tab.winfo_rgb    (local variable or parameter)
+        -> text.configure    (local variable or parameter)    x2
+        -> text.grid    (local variable or parameter)
+        -> text.tag_configure    (local variable or parameter)    x3
+        -> title    (local variable or parameter)
+        -> title_font.configure    (local variable or parameter)
+        -> tk.Text    (import tkinter as tk)
+        -> tkfont.nametofont    (from tkinter import font as tkfont)
+        -> ttk.Scrollbar    (from tkinter import ttk)
+        body()    1087
+            -> text.insert    (unknown, not imported or defined here)
+        link()    1090
+            -> self._goto_tab    (this class, line 1044)
+            -> text.configure    (unknown, not imported or defined here)    x2
+            -> text.insert    (unknown, not imported or defined here)
+            -> text.tag_bind    (unknown, not imported or defined here)    x3
+        title()    1084
+            -> text.insert    (unknown, not imported or defined here)
+    _build_poster_designs_tab()    2244
+        -> add_export_buttons    (from cpc_treeviews import add_export_buttons)
+        -> poster_export_bar.grid    (local variable or parameter)
+        -> right.columnconfigure    (local variable or parameter)
+        -> right.grid    (local variable or parameter)
+        -> right.rowconfigure    (local variable or parameter)
+        -> search_frame.columnconfigure    (local variable or parameter)
+        -> search_frame.grid    (local variable or parameter)
+        -> self._redraw_poster_design_previews    (this class, line 2527)
+        -> self._select_poster_row_offset    (this class, line 2464)    x2
+        -> self.build_treeview    (attribute of self (inherited or set at run time))
+        -> self.poster_design_preview_canvas.bind    (attribute of self (inherited or set at run time))
+        -> self.poster_design_preview_canvas.grid    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.bind    (attribute of self (inherited or set at run time))    x2
+        -> status_frame.columnconfigure    (local variable or parameter)
+        -> status_frame.grid    (local variable or parameter)
+        -> tab.columnconfigure    (local variable or parameter)    x2
+        -> tab.rowconfigure    (local variable or parameter)
+        -> tk.Canvas    (import tkinter as tk)
+        -> tree_frame.columnconfigure    (local variable or parameter)
+        -> tree_frame.grid    (local variable or parameter)
+        -> tree_frame.rowconfigure    (local variable or parameter)
+        -> ttk.Button    (from tkinter import ttk)    x7
+        -> ttk.Button(search_frame, text='Copy', c…    (method or call on an expression)
+        -> ttk.Button(search_frame, text='Refresh'…    (method or call on an expression)
+        -> ttk.Button(search_frame, text='X', widt…    (method or call on an expression)
+        -> ttk.Button(search_frame, textvariable=s…    (method or call on an expression)    x2
+        -> ttk.Button(status_frame, text='Next', c…    (method or call on an expression)
+        -> ttk.Button(status_frame, text='Prev', c…    (method or call on an expression)
+        -> ttk.Entry    (from tkinter import ttk)
+        -> ttk.Entry(search_frame, textvariable=se…    (method or call on an expression)
+        -> ttk.Frame    (from tkinter import ttk)    x5
+        -> ttk.Label    (from tkinter import ttk)
+        -> ttk.Label(status_frame, textvariable=se…    (method or call on an expression)
+    _build_poster_tab()    1320
+        -> buttons.grid    (local variable or parameter)
+        -> file_drop.columnconfigure    (local variable or parameter)
+        -> file_drop.grid    (local variable or parameter)
+        -> header.columnconfigure    (local variable or parameter)
+        -> header.grid    (local variable or parameter)
+        -> image_box.columnconfigure    (local variable or parameter)
+        -> image_box.grid    (local variable or parameter)
+        -> image_box.rowconfigure    (local variable or parameter)
+        -> left.columnconfigure    (local variable or parameter)
+        -> left.grid    (local variable or parameter)
+        -> left.rowconfigure    (local variable or parameter)
+        -> right.columnconfigure    (local variable or parameter)
+        -> right.grid    (local variable or parameter)
+        -> right.rowconfigure    (local variable or parameter)
+        -> sample.columnconfigure    (local variable or parameter)
+        -> sample.grid    (local variable or parameter)
+        -> scroll.grid    (local variable or parameter)
+        -> self.choose_poster_image_file    (this class, line 1532)
+        -> self.poster_drop_label.bind    (attribute of self (inherited or set at run time))
+        -> self.poster_drop_label.dnd_bind    (attribute of self (inherited or set at run time))
+        -> self.poster_drop_label.drop_target_register    (attribute of self (inherited or set at run time))
+        -> self.poster_drop_label.grid    (attribute of self (inherited or set at run time))
+        -> self.poster_image_label.bind    (attribute of self (inherited or set at run time))
+        -> self.poster_image_label.grid    (attribute of self (inherited or set at run time))
+        -> self.poster_text.configure    (attribute of self (inherited or set at run time))
+        -> self.poster_text.grid    (attribute of self (inherited or set at run time))
+        -> tab.columnconfigure    (local variable or parameter)    x2
+        -> tab.rowconfigure    (local variable or parameter)
+        -> tk.Label    (import tkinter as tk)
+        -> tk.StringVar    (import tkinter as tk)
+        -> tk.Text    (import tkinter as tk)
+        -> ttk.Button    (from tkinter import ttk)    x8
+        -> ttk.Button(buttons, text='Add', command…    (method or call on an expression)
+        -> ttk.Button(buttons, text='Backup', comm…    (method or call on an expression)
+        -> ttk.Button(buttons, text='Copy to Clipb…    (method or call on an expression)
+        -> ttk.Button(buttons, text='Delete', comm…    (method or call on an expression)
+        -> ttk.Button(buttons, text='Update', comm…    (method or call on an expression)
+        -> ttk.Button(file_drop, text='Paste Image…    (method or call on an expression)
+        -> ttk.Button(header, text='Copy', command…    (method or call on an expression)
+        -> ttk.Button(sample, text='Save Web Image…    (method or call on an expression)
+        -> ttk.Entry    (from tkinter import ttk)    x3
+        -> ttk.Entry(header, textvariable=self.pos…    (method or call on an expression)    x2
+        -> ttk.Entry(sample, textvariable=self.pos…    (method or call on an expression)
+        -> ttk.Frame    (from tkinter import ttk)    x4
+        -> ttk.Label    (from tkinter import ttk)    x3
+        -> ttk.Label(header, text='Name:').grid    (method or call on an expression)
+        -> ttk.Label(header, text='Number:').grid    (method or call on an expression)
+        -> ttk.LabelFrame    (from tkinter import ttk)    x3
+        -> ttk.Scrollbar    (from tkinter import ttk)
+    _build_settings_tab()    1601
+        -> backup_path_frame.columnconfigure    (local variable or parameter)
+        -> backup_path_frame.grid    (local variable or parameter)
+        -> button_frame.grid    (local variable or parameter)
+        -> canvas.bbox    (local variable or parameter)
+        -> canvas.bind    (local variable or parameter)    x3
+        -> canvas.bind_all    (local variable or parameter)
+        -> canvas.configure    (local variable or parameter)    x2
+        -> canvas.create_window    (local variable or parameter)
+        -> canvas.grid    (local variable or parameter)
+        -> canvas.itemconfigure    (local variable or parameter)
+        -> canvas.unbind_all    (local variable or parameter)
+        -> content.bind    (local variable or parameter)
+        -> counts_frame.columnconfigure    (local variable or parameter)
+        -> counts_frame.grid    (local variable or parameter)
+        -> data_frame.columnconfigure    (local variable or parameter)
+        -> data_frame.grid    (local variable or parameter)
+        -> data_tools.columnconfigure    (local variable or parameter)
+        -> data_tools.grid    (local variable or parameter)
+        -> db_names.columnconfigure    (local variable or parameter)
+        -> db_names.grid    (local variable or parameter)
+        -> dir_frame.columnconfigure    (local variable or parameter)
+        -> dir_frame.grid    (local variable or parameter)
+        -> export_path_frame.columnconfigure    (local variable or parameter)
+        -> export_path_frame.grid    (local variable or parameter)
+        -> list_frame.columnconfigure    (local variable or parameter)
+        -> list_frame.grid    (local variable or parameter)
+        -> list_frame.rowconfigure    (local variable or parameter)
+        -> metadata_frame.columnconfigure    (local variable or parameter)
+        -> metadata_frame.grid    (local variable or parameter)
+        -> outer.columnconfigure    (local variable or parameter)
+        -> outer.rowconfigure    (local variable or parameter)
+        -> progress_frame.columnconfigure    (local variable or parameter)
+        -> progress_frame.grid    (local variable or parameter)
+        -> range    (builtin)
+        -> root_path_frame.columnconfigure    (local variable or parameter)
+        -> root_path_frame.grid    (local variable or parameter)
+        -> samples_path_frame.columnconfigure    (local variable or parameter)
+        -> samples_path_frame.grid    (local variable or parameter)
+        -> save_bar.grid    (local variable or parameter)
+        -> scroll.grid    (local variable or parameter)
+        -> self._choose_config_directory    (this class, line 2139)    x4
+        -> self.add_managed_tag    (this class, line 2199)
+        -> self.directory_entry.grid    (attribute of self (inherited or set at run time))
+        -> self.new_tag_entry.bind    (attribute of self (inherited or set at run time))
+        -> self.new_tag_entry.grid    (attribute of self (inherited or set at run time))
+        -> self.poster_import_progress.grid    (attribute of self (inherited or set at run time))
+        -> self.settings_tab.columnconfigure    (attribute of self (inherited or set at run time))
+        -> self.settings_tab.rowconfigure    (attribute of self (inherited or set at run time))
+        -> self.tag_listbox.configure    (attribute of self (inherited or set at run time))
+        -> self.tag_listbox.grid    (attribute of self (inherited or set at run time))
+        -> source_frame.grid    (local variable or parameter)
+        -> tag_add_frame.columnconfigure    (local variable or parameter)
+        -> tag_add_frame.grid    (local variable or parameter)
+        -> tag_scroll.grid    (local variable or parameter)
+        -> tk.Canvas    (import tkinter as tk)
+        -> tk.Listbox    (import tkinter as tk)
+        -> tk.StringVar    (import tkinter as tk)
+        -> ttk.Button    (from tkinter import ttk)    x16
+        -> ttk.Button(backup_path_frame, text='Cho…    (method or call on an expression)
+        -> ttk.Button(button_frame, text='Delete S…    (method or call on an expression)
+        -> ttk.Button(data_frame, text='Choose...'…    (method or call on an expression)
+        -> ttk.Button(data_frame, text='Refresh Po…    (method or call on an expression)
+        -> ttk.Button(data_tools, text='Clear', co…    (method or call on an expression)
+        -> ttk.Button(data_tools, text='Export', c…    (method or call on an expression)
+        -> ttk.Button(data_tools, text='Import JSO…    (method or call on an expression)
+        -> ttk.Button(data_tools, text='Repair Dup…    (method or call on an expression)
+        -> ttk.Button(dir_frame, text='Choose...',…    (method or call on an expression)
+        -> ttk.Button(dir_frame, text='Reload Dire…    (method or call on an expression)
+        -> ttk.Button(export_path_frame, text='Cho…    (method or call on an expression)
+        -> ttk.Button(metadata_frame, text='Save',…    (method or call on an expression)
+        -> ttk.Button(root_path_frame, text='Choos…    (method or call on an expression)
+        -> ttk.Button(samples_path_frame, text='Ch…    (method or call on an expression)
+        -> ttk.Button(save_bar, text='Save Config'…    (method or call on an expression)
+        -> ttk.Button(tag_add_frame, text='Add Tag…    (method or call on an expression)
+        -> ttk.Entry    (from tkinter import ttk)    x12
+        -> ttk.Entry(backup_path_frame, textvariab…    (method or call on an expression)
+        -> ttk.Entry(data_frame, textvariable=self…    (method or call on an expression)    x2
+        -> ttk.Entry(db_names, textvariable=self.m…    (method or call on an expression)
+        -> ttk.Entry(db_names, textvariable=self.p…    (method or call on an expression)
+        -> ttk.Entry(db_names, textvariable=self.s…    (method or call on an expression)
+        -> ttk.Entry(export_path_frame, textvariab…    (method or call on an expression)
+        -> ttk.Entry(metadata_frame, textvariable=…    (method or call on an expression)
+        -> ttk.Entry(root_path_frame, textvariable…    (method or call on an expression)
+        -> ttk.Entry(samples_path_frame, textvaria…    (method or call on an expression)
+        -> ttk.Frame    (from tkinter import ttk)    x12
+        -> ttk.Label    (from tkinter import ttk)    x19
+        -> ttk.Label(button_frame, text='Deleting …    (method or call on an expression)
+        -> ttk.Label(counts_frame, textvariable=se…    (method or call on an expression)    x2
+        -> ttk.Label(data_frame, text='Database:')…    (method or call on an expression)
+        -> ttk.Label(data_frame, text='MongoDB URI…    (method or call on an expression)
+        -> ttk.Label(data_frame, text='Poster sour…    (method or call on an expression)
+        -> ttk.Label(data_frame, text='posters.py:…    (method or call on an expression)
+        -> ttk.Label(data_tools, textvariable=self…    (method or call on an expression)
+        -> ttk.Label(db_names, text='database').gr…    (method or call on an expression)
+        -> ttk.Label(db_names, text='poster collec…    (method or call on an expression)
+        -> ttk.Label(db_names, text='song collecti…    (method or call on an expression)
+        -> ttk.Label(dir_frame, text='Poster backu…    (method or call on an expression)
+        -> ttk.Label(dir_frame, text='Poster expor…    (method or call on an expression)
+        -> ttk.Label(dir_frame, text='Poster root:…    (method or call on an expression)
+        -> ttk.Label(dir_frame, text='Poster sampl…    (method or call on an expression)
+        -> ttk.Label(metadata_frame, text='Copyrig…    (method or call on an expression)
+        -> ttk.Label(progress_frame, textvariable=…    (method or call on an expression)
+        -> ttk.Label(save_bar, textvariable=self.c…    (method or call on an expression)
+        -> ttk.Label(tag_add_frame, text='New tag:…    (method or call on an expression)
+        -> ttk.LabelFrame    (from tkinter import ttk)    x5
+        -> ttk.Progressbar    (from tkinter import ttk)
+        -> ttk.Radiobutton    (from tkinter import ttk)    x2
+        -> ttk.Radiobutton(source_frame, text='Mon…    (method or call on an expression)
+        -> ttk.Radiobutton(source_frame, text='pos…    (method or call on an expression)
+        -> ttk.Scrollbar    (from tkinter import ttk)    x2
+        _config_mousewheel()    1619
+            -> canvas.yview_scroll    (unknown, not imported or defined here)
+    _build_songs_data_tab()    2581
+        -> add_export_buttons    (from cpc_treeviews import add_export_buttons)
+        -> search_frame.columnconfigure    (local variable or parameter)
+        -> search_frame.grid    (local variable or parameter)
+        -> self.build_treeview    (attribute of self (inherited or set at run time))
+        -> self.songs_data_tab.columnconfigure    (attribute of self (inherited or set at run time))
+        -> self.songs_data_tab.rowconfigure    (attribute of self (inherited or set at run time))
+        -> song_export_bar.grid    (local variable or parameter)
+        -> tree_frame.columnconfigure    (local variable or parameter)
+        -> tree_frame.grid    (local variable or parameter)
+        -> tree_frame.rowconfigure    (local variable or parameter)
+        -> ttk.Button    (from tkinter import ttk)
+        -> ttk.Button(search_frame, text='Refresh'…    (method or call on an expression)
+        -> ttk.Entry    (from tkinter import ttk)
+        -> ttk.Entry(search_frame, textvariable=se…    (method or call on an expression)
+        -> ttk.Frame    (from tkinter import ttk)    x3
+        -> ttk.Label    (from tkinter import ttk)    x2
+        -> ttk.Label(search_frame, text='Search:')…    (method or call on an expression)
+        -> ttk.Label(search_frame, textvariable=se…    (method or call on an expression)
+    _build_ui_choices_tab()    1203
+        -> actions.grid    (local variable or parameter)
+        -> appearance.columnconfigure    (local variable or parameter)
+        -> appearance.grid    (local variable or parameter)
+        -> density_frame.grid    (local variable or parameter)
+        -> density_names    (from cpc_ui_theme import density_names)
+        -> size.grid    (local variable or parameter)
+        -> tab.columnconfigure    (local variable or parameter)
+        -> theme_names    (from cpc_ui_theme import theme_names)
+        -> ttk.Button    (from tkinter import ttk)    x2
+        -> ttk.Button(actions, text='Apply + Save'…    (method or call on an expression)
+        -> ttk.Button(size, text='Use Current Size…    (method or call on an expression)
+        -> ttk.Combobox    (from tkinter import ttk)
+        -> ttk.Combobox(appearance, textvariable=s…    (method or call on an expression)
+        -> ttk.Entry    (from tkinter import ttk)    x2
+        -> ttk.Entry(size, textvariable=self.windo…    (method or call on an expression)    x2
+        -> ttk.Frame    (from tkinter import ttk)    x2
+        -> ttk.Label    (from tkinter import ttk)    x6
+        -> ttk.Label(actions, textvariable=self.ui…    (method or call on an expression)
+        -> ttk.Label(appearance, text='Density:').…    (method or call on an expression)
+        -> ttk.Label(appearance, text='Theme:').gr…    (method or call on an expression)
+        -> ttk.Label(size, text='Height').grid    (method or call on an expression)
+        -> ttk.Label(size, text='Width').grid    (method or call on an expression)
+        -> ttk.Label(tab, text='Theme, density and…    (method or call on an expression)
+        -> ttk.LabelFrame    (from tkinter import ttk)    x2
+        -> ttk.Radiobutton    (from tkinter import ttk)
+        -> ttk.Radiobutton(density_frame, text=val…    (method or call on an expression)
+        -> ui_choices.attach    (import cpc_ui_choices as ui_choices)
+    _capture_current_window_size()    1269
+        -> max    (builtin)    x2
+        -> self.master.winfo_height    (attribute of self (inherited or set at run time))
+        -> self.master.winfo_width    (attribute of self (inherited or set at run time))
+        -> self.window_height_var.set    (attribute of self (inherited or set at run time))
+        -> self.window_width_var.set    (attribute of self (inherited or set at run time))
+        -> str    (builtin)    x2
+    _choose_config_directory()    2139
+        -> filedialog.askdirectory    (from tkinter import filedialog)
+        -> Path    (from pathlib import Path)    x2
+        -> Path(current).is_dir    (method or call on an expression)
+        -> Path(initial).is_dir    (method or call on an expression)
+        -> Path.home    (from pathlib import Path)
+        -> self.save_config    (this class, line 898)
+        -> str    (builtin)
+        -> variable.get    (local variable or parameter)
+        -> variable.get().strip    (method or call on an expression)
+        -> variable.set    (local variable or parameter)
+    _clean_tag_name()    2177
+        -> messagebox.showerror    (from tkinter import messagebox)    x2
+        -> str    (builtin)
+        -> str(raw).strip    (method or call on an expression)
+        -> str(raw).strip().lower    (method or call on an expression)
+    _clear_poster_search()    2351
+        -> self.poster_search_var.set    (attribute of self (inherited or set at run time))
+    _compact_text()    2650
+        -> ' '.join    (method or call on an expression)
+        -> ImageSidekick._display_text    (this file, line 643)
+        -> ImageSidekick._display_text(value).split    (method or call on an expression)
+    _configured_directory()    2149
+        -> Path    (from pathlib import Path)
+        -> path.mkdir    (local variable or parameter)
+        -> variable.get    (local variable or parameter)
+        -> variable.get().strip    (method or call on an expression)
+    _display_text()    2637
+        -> ', '.join    (method or call on an expression)
+        -> isinstance    (builtin)    x2
+        -> json.dumps    (import json)
+        -> str    (builtin)    x3
+    _drop_poster_image_file()    1536
+        -> messagebox.showwarning    (from tkinter import messagebox)
+        -> self._save_poster_image_from_path    (this class, line 1519)
+        -> self.master.tk.splitlist    (attribute of self (inherited or set at run time))
+    _export_json_documents()    3178
+        -> clean_documents.append    (local variable or parameter)
+        -> filedialog.asksaveasfilename    (from tkinter import filedialog)
+        -> isinstance    (builtin)
+        -> json.dumps    (import json)
+        -> len    (builtin)
+        -> messagebox.showerror    (from tkinter import messagebox)
+        -> messagebox.showinfo    (from tkinter import messagebox)    x2
+        -> Path    (from pathlib import Path)
+        -> Path(target).write_text    (method or call on an expression)
+        -> self._poster_export_dir    (this class, line 2162)
+        -> str    (builtin)
+    _finish_poster_selection_restore()    3107
+    _first_field()    2623
+        -> document.get    (local variable or parameter)
+        -> document.keys    (local variable or parameter)
+        -> isinstance    (builtin)
+        -> lower_map.get    (local variable or parameter)
+        -> str    (builtin)    x2
+        -> str(key).lower    (method or call on an expression)
+        -> str(name).lower    (method or call on an expression)
+    _format_file_size()    1915
+        -> float    (builtin)
+        -> int    (builtin)
+    _get_selected_poster_record()    2372
+        -> hasattr    (builtin)
+        -> next    (builtin)
+        -> r.get    (local variable or parameter)
+        -> self.poster_tree.item    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.selection    (attribute of self (inherited or set at run time))
+        -> str    (builtin)    x2
+    _goto_tab()    1044
+        -> select_tab_by_text    (from cpc_ui_state import select_tab_by_text)
+    _load_app_icon()    924
+        -> icon_path.is_file    (local variable or parameter)
+        -> Path    (from pathlib import Path)
+        -> Path(__file__).resolve    (method or call on an expression)
+        -> Path(__file__).resolve().with_suffix    (method or call on an expression)
+        -> self.master.iconbitmap    (attribute of self (inherited or set at run time))
+        -> str    (builtin)
+    _load_config()    843
+        -> isinstance    (builtin)
+        -> json.loads    (import json)
+        -> messagebox.showwarning    (from tkinter import messagebox)
+        -> self.config.update    (attribute of self (inherited or set at run time))
+        -> self.config_path.exists    (attribute of self (inherited or set at run time))
+        -> self.config_path.read_text    (attribute of self (inherited or set at run time))
+    _load_poster_image()    1583
+        -> Image.open    (from PIL import Image)
+        -> ImageOps.exif_transpose    (from PIL import ImageOps)
+        -> ImageOps.exif_transpose(img).copy    (method or call on an expression)
+        -> self._poster_image_path    (this class, line 1571)
+        -> self._resize_poster_image    (this class, line 1594)
+        -> self.poster_image_label.configure    (attribute of self (inherited or set at run time))
+    _load_poster_record_into_editor()    1356
+        -> record.get    (local variable or parameter)    x5
+        -> self._load_poster_image    (this class, line 1583)
+        -> self.notebook.select    (attribute of self (inherited or set at run time))
+        -> self.poster_name_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_number_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_text.delete    (attribute of self (inherited or set at run time))
+        -> self.poster_text.insert    (attribute of self (inherited or set at run time))
+        -> str    (builtin)
+    _mixed_number_key()    3018
+        -> ''.join    (method or call on an expression)
+        -> char.isdigit    (local variable or parameter)
+        -> digits.append    (local variable or parameter)
+        -> int    (builtin)    x2
+        -> str    (builtin)
+        -> str(value or '').strip    (method or call on an expression)
+        -> text.casefold    (local variable or parameter)    x2
+    _notify_host_tags_changed()    2196
+    _on_poster_row_selected()    2440
+        -> record.get    (local variable or parameter)
+        -> self._get_selected_poster_record    (this class, line 2372)
+        -> self._load_poster_record_into_editor    (this class, line 1356)
+        -> self.copy_selected_poster_inst    (this class, line 2571)
+        -> self.master.after    (attribute of self (inherited or set at run time))
+        -> self.master.after_cancel    (attribute of self (inherited or set at run time))
+        -> self.poster_auto_copy_var.get    (attribute of self (inherited or set at run time))
+        -> str    (builtin)
+        -> str(record.get('number', '')).strip    (method or call on an expression)
+    _on_poster_search_change()    3012
+        -> self._apply_poster_filter_and_sort    (this class, line 3036)
+        -> self.poster_search_var.get    (attribute of self (inherited or set at run time))
+        -> self.save_config    (this class, line 898)
+    _on_poster_search_field_change()    2359
+        -> self._apply_poster_filter_and_sort    (this class, line 3036)
+        -> self.poster_search_field_text_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_search_field_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_search_field_var.set    (attribute of self (inherited or set at run time))
+        -> self.save_config    (this class, line 898)
+    _on_song_search_change()    3130
+        -> self._apply_song_filter_and_sort    (this class, line 3135)
+        -> self.save_config    (this class, line 898)
+        -> self.song_search_var.get    (attribute of self (inherited or set at run time))
+    _on_tab_changed()    1021
+        -> current_tab_text    (from cpc_ui_state import current_tab_text)
+        -> normalize_theme_name    (from cpc_ui_theme import normalize_theme_name)
+        -> r.get    (unknown, not imported or defined here)
+        -> self._load_poster_image    (this class, line 1583)
+        -> self.config.get    (attribute of self (inherited or set at run time))
+        -> self.master.after_idle    (attribute of self (inherited or set at run time))
+        -> self.notebook.index    (attribute of self (inherited or set at run time))
+        -> self.notebook.select    (attribute of self (inherited or set at run time))    x2
+        -> self.notebook.tab    (attribute of self (inherited or set at run time))
+        -> self.refresh_file_browser    (this class, line 1967)
+        -> self.refresh_managed_tag_list    (this class, line 2189)
+        -> self.refresh_poster_designs    (this class, line 2962)
+        -> self.save_config    (this class, line 898)
+        -> self.ui_theme_var.set    (attribute of self (inherited or set at run time))
+    _open_selected_browser_directory()    1953
+        -> Path    (from pathlib import Path)
+        -> self.browser_directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.browser_directory_var.get().strip    (method or call on an expression)
+        -> self.browser_directory_var.set    (attribute of self (inherited or set at run time))
+        -> self.browser_dirs_tree.item    (attribute of self (inherited or set at run time))
+        -> self.browser_dirs_tree.selection    (attribute of self (inherited or set at run time))
+        -> self.refresh_file_browser    (this class, line 1967)
+        -> str    (builtin)    x2
+        -> target.is_dir    (local variable or parameter)
+    _open_selected_poster()    2388
+        -> hasattr    (builtin)
+        -> next    (builtin)
+        -> r.get    (local variable or parameter)
+        -> self._load_poster_record_into_editor    (this class, line 1356)
+        -> self.master.after_cancel    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.focus    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.identify_row    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.item    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.see    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.selection    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.selection_set    (attribute of self (inherited or set at run time))
+        -> str    (builtin)    x2
+        -> str(r.get('number', '')).strip    (method or call on an expression)
+        -> str(values[0]).strip    (method or call on an expression)
+    _populate_poster_tree()    3072
+        -> canvas.delete    (local variable or parameter)
+        -> enumerate    (builtin)
+        -> getattr    (builtin)
+        -> hasattr    (builtin)
+        -> record.get    (local variable or parameter)    x4
+        -> self._refresh_poster_design_previews    (this class, line 2486)
+        -> self.config.get    (attribute of self (inherited or set at run time))    x2
+        -> self.insert_row    (attribute of self (inherited or set at run time))
+        -> self.master.after_idle    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.delete    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.focus    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.get_children    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.see    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.selection_set    (attribute of self (inherited or set at run time))
+        -> str    (builtin)    x2
+        -> str(record.get('number', '')).strip    (method or call on an expression)
+        -> str(self.config.get('last_record_id', '…    (method or call on an expression)
+    _populate_song_tree()    3161
+        -> hasattr    (builtin)
+        -> record.get    (local variable or parameter)    x3
+        -> self.insert_row    (attribute of self (inherited or set at run time))
+        -> self.song_tree.delete    (attribute of self (inherited or set at run time))
+        -> self.song_tree.get_children    (attribute of self (inherited or set at run time))
+    _poster_backup_dir()    2159
+        -> self._configured_directory    (this class, line 2149)
+    _poster_export_dir()    2162
+        -> self._configured_directory    (this class, line 2149)
+    _poster_export_payload()    2676
+        -> record.get    (local variable or parameter)    x3
+    _poster_image_path()    1571
+        -> candidate.is_file    (local variable or parameter)
+        -> samples.is_dir    (local variable or parameter)
+        -> self._poster_samples_dir    (this class, line 2156)
+        -> str    (builtin)
+        -> str(number).strip    (method or call on an expression)
+    _poster_persistence_args()    1381
+        -> self.mongo_database_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_database_var.get().strip    (method or call on an expression)
+        -> self.mongo_uri_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_uri_var.get().strip    (method or call on an expression)
+        -> self.poster_collection_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_collection_var.get().strip    (method or call on an expression)
+        -> self.poster_source_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_source_var.get().strip    (method or call on an expression)
+        -> self.posters_py_var.get    (attribute of self (inherited or set at run time))
+        -> self.posters_py_var.get().strip    (method or call on an expression)
+    _poster_record_from_document()    2653
+        -> poster_record_from_document    (from cc_poster_data import poster_record_from_document)
+    _poster_samples_dir()    2156
+        -> self._configured_directory    (this class, line 2149)
+    _poster_snapshot_payload()    1390
+        -> record.get    (local variable or parameter)    x3
+    _poster_source_changed()    2933
+        -> self.refresh_poster_designs    (this class, line 2962)
+        -> self.save_config    (this class, line 898)
+    _poster_text_value()    1355
+        -> self.poster_text.get    (attribute of self (inherited or set at run time))
+    _read_mongo_collection()    2661
+        -> self.mongo_database_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_database_var.get().strip    (method or call on an expression)
+        -> self.mongo_uri_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_uri_var.get().strip    (method or call on an expression)
+        -> shared_read_mongo_collection    (unknown, not imported or defined here)
+    _read_posters_py()    2656
+        -> hasattr    (builtin)
+        -> Path    (from pathlib import Path)
+        -> read_posters_py    (from cc_poster_data import read_posters_py)
+        -> self.posters_py_var.get    (attribute of self (inherited or set at run time))
+        -> self.posters_py_var.get().strip    (method or call on an expression)
+    _records_from_import_json()    2718
+        -> data.get    (local variable or parameter)
+        -> isinstance    (builtin)    x4
+        -> item.get    (local variable or parameter)    x3
+        -> records.append    (local variable or parameter)
+        -> str    (builtin)    x3
+        -> str(item.get('number', '')).strip    (method or call on an expression)
+        -> ValueError    (builtin)
+    _records_from_import_py()    2744
+        -> any    (builtin)
+        -> ast.literal_eval    (import ast)
+        -> ast.parse    (import ast)
+        -> ImageSidekick._records_from_import_json    (this file, line 643)
+        -> isinstance    (builtin)    x3
+        -> Path    (from pathlib import Path)
+        -> Path(path).read_text    (method or call on an expression)
+        -> str    (builtin)
+        -> ValueError    (builtin)    x2
+    _redraw_poster_design_previews()    2527
+        -> canvas.create_image    (local variable or parameter)
+        -> canvas.delete    (local variable or parameter)
+        -> canvas.winfo_height    (local variable or parameter)
+        -> canvas.winfo_width    (local variable or parameter)
+        -> getattr    (builtin)
+        -> ImageTk.PhotoImage    (from PIL import ImageTk)
+        -> img.thumbnail    (local variable or parameter)
+        -> int    (builtin)    x2
+        -> max    (builtin)    x5
+        -> self.poster_design_preview_sources.get    (attribute of self (inherited or set at run time))
+        -> source.copy    (local variable or parameter)
+    _refresh_poster_design_previews()    2486
+        -> canvas.delete    (local variable or parameter)    x2
+        -> children.index    (local variable or parameter)
+        -> getattr    (builtin)
+        -> hasattr    (builtin)
+        -> Image.open    (from PIL import Image)
+        -> ImageOps.exif_transpose    (from PIL import ImageOps)
+        -> ImageOps.exif_transpose(img).copy    (method or call on an expression)
+        -> len    (builtin)    x2
+        -> positions.items    (local variable or parameter)
+        -> self._poster_image_path    (this class, line 1571)
+        -> self._redraw_poster_design_previews    (this class, line 2527)
+        -> self.poster_tree.get_children    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.item    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.selection    (attribute of self (inherited or set at run time))
+        -> str    (builtin)
+        -> str(values[0]).strip    (method or call on an expression)
+    _rename_sample_image()    1509
+        -> samples.is_dir    (local variable or parameter)
+        -> self._poster_samples_dir    (this class, line 2156)
+        -> src.is_file    (local variable or parameter)
+        -> src.rename    (local variable or parameter)
+        -> str    (builtin)    x2
+    _resize_poster_image()    1594
+        -> getattr    (builtin)
+        -> ImageTk.PhotoImage    (from PIL import ImageTk)
+        -> img.thumbnail    (local variable or parameter)
+        -> max    (builtin)    x2
+        -> self.poster_image_label.configure    (attribute of self (inherited or set at run time))
+        -> self.poster_image_label.winfo_height    (attribute of self (inherited or set at run time))
+        -> self.poster_image_label.winfo_width    (attribute of self (inherited or set at run time))
+        -> source_image.copy    (local variable or parameter)
+    _rewrite_image_without_metadata()    2098
+        -> clean.save    (local variable or parameter)    x2
+        -> Image.Exif    (from PIL import Image)
+        -> Image.frombytes    (from PIL import Image)    x2
+        -> Image.open    (from PIL import Image)
+        -> ImageOps.exif_transpose    (from PIL import ImageOps)
+        -> img.convert    (local variable or parameter)    x2
+        -> img.tobytes    (local variable or parameter)    x2
+        -> Path    (from pathlib import Path)
+        -> PngImagePlugin.PngInfo    (from PIL import PngImagePlugin)
+        -> pnginfo.add_text    (local variable or parameter)
+        -> source.suffix.lower    (local variable or parameter)
+        -> source.with_name    (local variable or parameter)
+        -> temp.exists    (local variable or parameter)
+        -> temp.replace    (local variable or parameter)
+        -> temp.unlink    (local variable or parameter)
+    _run_poster_preview_refresh()    2460
+        -> self._refresh_poster_design_previews    (this class, line 2486)
+    _save_poster_image_from_path()    1519
+        -> Image.open    (from PIL import Image)
+        -> img.convert    (local variable or parameter)
+        -> img.convert('RGBA').save    (method or call on an expression)
+        -> messagebox.showwarning    (from tkinter import messagebox)    x2
+        -> samples.mkdir    (local variable or parameter)
+        -> self._load_poster_image    (this class, line 1583)
+        -> self._poster_samples_dir    (this class, line 2156)
+        -> self.poster_number_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_number_var.get().strip    (method or call on an expression)
+        -> str    (builtin)
+    _select_poster_row_offset()    2464
+        -> children.index    (local variable or parameter)
+        -> hasattr    (builtin)
+        -> len    (builtin)
+        -> self.poster_tree.focus    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.get_children    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.see    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.selection    (attribute of self (inherited or set at run time))
+        -> self.poster_tree.selection_set    (attribute of self (inherited or set at run time))
+    _set_title_status()    916
+        -> self.master.title    (attribute of self (inherited or set at run time))
+    _show_import_progress()    2763
+        -> int    (builtin)    x2
+        -> max    (builtin)
+        -> min    (builtin)
+        -> self.master.update_idletasks    (attribute of self (inherited or set at run time))
+        -> self.poster_data_log_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_import_progress_text_var.set    (attribute of self (inherited or set at run time))    x2
+        -> self.poster_import_progress_var.set    (attribute of self (inherited or set at run time))    x2
+    _show_poster_record()    1374
+        -> self._load_poster_record_into_editor    (this class, line 1356)
+    _toggle_poster_auto_copy()    2434
+        -> self.poster_auto_copy_text_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_auto_copy_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_auto_copy_var.set    (attribute of self (inherited or set at run time))
+        -> self.save_config    (this class, line 898)
+    _toggle_poster_search_field()    2354
+        -> self.poster_search_field_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_search_field_var.set    (attribute of self (inherited or set at run time))
+    _validate_saved_poster_number()    2988
+        -> isinstance    (builtin)    x2
+        -> record.get    (local variable or parameter)
+        -> self.config.get    (attribute of self (inherited or set at run time))    x4
+        -> self.save_config    (this class, line 898)
+        -> str    (builtin)    x2
+        -> str(raw).strip    (method or call on an expression)
+        -> str(record.get('number', '')).strip    (method or call on an expression)
+    _validated_window_size()    828
+        -> int    (builtin)    x2
+        -> self.config.get    (attribute of self (inherited or set at run time))    x2
+    _write_configured_poster_backup()    1400
+        -> datetime.now    (from datetime import datetime)
+        -> datetime.now().strftime    (method or call on an expression)
+        -> json.dumps    (import json)
+        -> path.write_text    (local variable or parameter)
+        -> self._poster_backup_dir    (this class, line 2159)
+        -> self._poster_snapshot_payload    (this class, line 1390)
+    _write_poster_export()    2687
+        -> json.dumps    (import json)
+        -> len    (builtin)
+        -> Path    (from pathlib import Path)
+        -> Path(path).write_text    (method or call on an expression)
+        -> self._poster_export_payload    (this class, line 2676)
+    add_managed_tag()    2199
+        -> messagebox.showerror    (from tkinter import messagebox)
+        -> self._clean_tag_name    (this class, line 2177)
+        -> self._notify_host_tags_changed    (this class, line 2196)
+        -> self.config.setdefault    (attribute of self (inherited or set at run time))
+        -> self.new_tag_var.get    (attribute of self (inherited or set at run time))
+        -> self.new_tag_var.set    (attribute of self (inherited or set at run time))
+        -> self.refresh_managed_tag_list    (this class, line 2189)
+        -> self.save_config    (this class, line 898)
+        -> tag.isdigit    (local variable or parameter)
+        -> tags.append    (local variable or parameter)
+    add_poster_record()    1410
+        -> any    (builtin)
+        -> messagebox.showerror    (from tkinter import messagebox)
+        -> messagebox.showwarning    (from tkinter import messagebox)    x2
+        -> next    (builtin)
+        -> persist_poster_record    (from cc_poster_data import save_poster_record as persist_poster_record)
+        -> r.get    (local variable or parameter)    x2
+        -> self._load_poster_record_into_editor    (this class, line 1356)
+        -> self._poster_persistence_args    (this class, line 1381)
+        -> self._poster_text_value    (this class, line 1355)
+        -> self.poster_name_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_name_var.get().strip    (method or call on an expression)
+        -> self.poster_number_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_number_var.get().strip    (method or call on an expression)
+        -> self.refresh_poster_designs    (this class, line 2962)
+        -> str    (builtin)    x2
+        -> str(r.get('number', '')).strip    (method or call on an expression)    x2
+    backup_posters()    1470
+        -> messagebox.showerror    (from tkinter import messagebox)
+        -> messagebox.showinfo    (from tkinter import messagebox)
+        -> self._write_configured_poster_backup    (this class, line 1400)
+        -> self.refresh_poster_designs    (this class, line 2962)
+    browser_go_up()    1943
+        -> current.is_dir    (local variable or parameter)
+        -> Path    (from pathlib import Path)
+        -> self.browser_directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.browser_directory_var.get().strip    (method or call on an expression)
+        -> self.browser_directory_var.set    (attribute of self (inherited or set at run time))
+        -> self.refresh_file_browser    (this class, line 1967)
+        -> str    (builtin)
+    choose_browser_directory()    1924
+        -> filedialog.askdirectory    (from tkinter import filedialog)
+        -> Path    (from pathlib import Path)    x2
+        -> Path(current).is_dir    (method or call on an expression)    x2
+        -> Path.home    (from pathlib import Path)
+        -> self.browser_directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.browser_directory_var.get().strip    (method or call on an expression)
+        -> self.browser_directory_var.set    (attribute of self (inherited or set at run time))
+        -> self.directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.directory_var.get().strip    (method or call on an expression)
+        -> self.refresh_file_browser    (this class, line 1967)
+        -> self.save_config    (this class, line 898)
+        -> str    (builtin)
+    choose_directory()    2165
+        -> filedialog.askdirectory    (from tkinter import filedialog)
+        -> Path    (from pathlib import Path)
+        -> Path(initial).is_dir    (method or call on an expression)
+        -> Path.home    (from pathlib import Path)
+        -> self.directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.directory_var.get().strip    (method or call on an expression)
+        -> self.directory_var.set    (attribute of self (inherited or set at run time))
+        -> self.save_config    (this class, line 898)
+        -> str    (builtin)
+    choose_poster_image_file()    1532
+        -> filedialog.askopenfilename    (from tkinter import filedialog)
+        -> self._poster_samples_dir    (this class, line 2156)
+        -> self._save_poster_image_from_path    (this class, line 1519)
+        -> str    (builtin)
+    choose_posters_py()    2937
+        -> current_path.parent.is_dir    (local variable or parameter)
+        -> filedialog.askopenfilename    (from tkinter import filedialog)
+        -> Path    (from pathlib import Path)
+        -> self.poster_source_var.get    (attribute of self (inherited or set at run time))
+        -> self.posters_py_var.get    (attribute of self (inherited or set at run time))
+        -> self.posters_py_var.get().strip    (method or call on an expression)
+        -> self.posters_py_var.set    (attribute of self (inherited or set at run time))
+        -> self.refresh_poster_designs    (this class, line 2962)
+        -> self.save_config    (this class, line 898)
+        -> str    (builtin)
+    clean_selected_image_metadata()    2046
+        -> '\n'.join    (method or call on an expression)
+        -> errors.append    (local variable or parameter)
+        -> len    (builtin)
+        -> messagebox.askyesno    (from tkinter import messagebox)
+        -> messagebox.showinfo    (from tkinter import messagebox)    x3
+        -> messagebox.showwarning    (from tkinter import messagebox)    x2
+        -> p.suffix.lower    (local variable or parameter)
+        -> Path    (from pathlib import Path)
+        -> self._rewrite_image_without_metadata    (this class, line 2098)
+        -> self.browser_files_tree.selection    (attribute of self (inherited or set at run time))
+        -> self.copyright_notice_var.get    (attribute of self (inherited or set at run time))
+        -> self.copyright_notice_var.get().strip    (method or call on an expression)
+        -> self.refresh_file_browser    (this class, line 1967)
+    clear_poster_data()    2880
+        -> datetime.now    (from datetime import datetime)
+        -> datetime.now().strftime    (method or call on an expression)
+        -> len    (builtin)
+        -> list    (builtin)
+        -> messagebox.askyesno    (from tkinter import messagebox)
+        -> messagebox.showerror    (from tkinter import messagebox)
+        -> persist_delete_poster_record    (from cc_poster_data import delete_poster_record as persist_delete_poster_record)
+        -> record.get    (local variable or parameter)
+        -> self._poster_backup_dir    (this class, line 2159)
+        -> self._poster_persistence_args    (this class, line 1381)
+        -> self._write_poster_export    (this class, line 2687)
+        -> self.poster_data_log_var.set    (attribute of self (inherited or set at run time))    x4
+        -> self.poster_name_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_number_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_text.delete    (attribute of self (inherited or set at run time))
+        -> self.refresh_poster_designs    (this class, line 2962)    x2
+        -> str    (builtin)
+        -> str(record.get('number', '')).strip    (method or call on an expression)
+    close_sidekick()    954
+        -> self.master.destroy    (attribute of self (inherited or set at run time))
+        -> self.shutdown    (this class, line 944)
+    copy_poster_inst_to_clipboard()    1378
+        -> self._poster_text_value    (this class, line 1355)
+        -> self.master.clipboard_append    (attribute of self (inherited or set at run time))
+        -> self.master.clipboard_clear    (attribute of self (inherited or set at run time))
+    copy_poster_to_clipboard()    1376
+        -> self._poster_text_value    (this class, line 1355)
+        -> self.master.clipboard_append    (attribute of self (inherited or set at run time))
+        -> self.master.clipboard_clear    (attribute of self (inherited or set at run time))
+        -> self.poster_name_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_number_var.get    (attribute of self (inherited or set at run time))
+    copy_selected_poster_inst()    2571
+        -> messagebox.showinfo    (from tkinter import messagebox)
+        -> record.get    (local variable or parameter)
+        -> self._get_selected_poster_record    (this class, line 2372)
+        -> self.master.clipboard_append    (attribute of self (inherited or set at run time))
+        -> self.master.clipboard_clear    (attribute of self (inherited or set at run time))
+    delete_managed_tag()    2219
+        -> len    (builtin)
+        -> messagebox.askyesno    (from tkinter import messagebox)
+        -> self._notify_host_tags_changed    (this class, line 2196)
+        -> self.config.get    (attribute of self (inherited or set at run time))
+        -> self.refresh_managed_tag_list    (this class, line 2189)
+        -> self.save_config    (this class, line 898)
+        -> self.tag_listbox.curselection    (attribute of self (inherited or set at run time))
+    delete_poster_record()    1479
+        -> messagebox.askyesno    (from tkinter import messagebox)
+        -> messagebox.showerror    (from tkinter import messagebox)    x2
+        -> messagebox.showinfo    (from tkinter import messagebox)
+        -> persist_delete_poster_record    (from cc_poster_data import delete_poster_record as persist_delete_poster_record)
+        -> self._poster_persistence_args    (this class, line 1381)
+        -> self._write_configured_poster_backup    (this class, line 1400)
+        -> self.poster_image_label.configure    (attribute of self (inherited or set at run time))
+        -> self.poster_name_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_number_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_number_var.get().strip    (method or call on an expression)
+        -> self.poster_number_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_text.delete    (attribute of self (inherited or set at run time))
+        -> self.refresh_poster_designs    (this class, line 2962)
+    export_active_posters_to_json()    3219
+        -> messagebox.showwarning    (from tkinter import messagebox)
+        -> self._export_json_documents    (this class, line 3178)
+        -> self._read_mongo_collection    (this class, line 2661)
+        -> self._read_posters_py    (this class, line 2656)
+        -> self.poster_collection_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_collection_var.get().strip    (method or call on an expression)
+        -> self.poster_source_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_source_var.get().strip    (method or call on an expression)
+    export_poster_data_json()    2695
+        -> datetime.now    (from datetime import datetime)
+        -> datetime.now().strftime    (method or call on an expression)
+        -> filedialog.asksaveasfilename    (from tkinter import filedialog)
+        -> messagebox.showerror    (from tkinter import messagebox)
+        -> Path    (from pathlib import Path)    x2
+        -> self._poster_export_dir    (this class, line 2162)
+        -> self._write_poster_export    (this class, line 2687)
+        -> self.poster_data_log_var.set    (attribute of self (inherited or set at run time))    x3
+        -> self.refresh_poster_designs    (this class, line 2962)
+        -> str    (builtin)
+    export_posters_py_to_json()    3212
+        -> messagebox.showwarning    (from tkinter import messagebox)
+        -> self._export_json_documents    (this class, line 3178)
+        -> self._read_posters_py    (this class, line 2656)
+    import_poster_data_json()    2779
+        -> _mongo_import_posters_overwrite    (this file, line 455)
+        -> _read_poster_import_file    (this file, line 375)
+        -> filedialog.askopenfilename    (from tkinter import filedialog)
+        -> len    (builtin)    x2
+        -> messagebox.showerror    (from tkinter import messagebox)    x2
+        -> messagebox.showinfo    (from tkinter import messagebox)
+        -> Path    (from pathlib import Path)
+        -> self._poster_backup_dir    (this class, line 2159)
+        -> self._poster_export_dir    (this class, line 2162)
+        -> self._show_import_progress    (this class, line 2763)    x6
+        -> self.mongo_database_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_database_var.get().strip    (method or call on an expression)
+        -> self.mongo_uri_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_uri_var.get().strip    (method or call on an expression)
+        -> self.poster_collection_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_collection_var.get().strip    (method or call on an expression)
+        -> self.poster_data_count_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_import_file_count_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_source_var.set    (attribute of self (inherited or set at run time))
+        -> self.refresh_poster_designs    (this class, line 2962)
+        -> self.save_config    (this class, line 898)    x2
+        -> str    (builtin)
+    open_tagger()    933
+        -> messagebox.showerror    (from tkinter import messagebox)    x2
+        -> str    (builtin)    x2
+        -> subprocess.Popen    (import subprocess)
+        -> tagger_path.is_file    (local variable or parameter)
+    paste_poster_image()    1543
+        -> ImageGrab.grabclipboard    (from PIL import ImageGrab)
+        -> img.convert    (local variable or parameter)
+        -> img.convert('RGBA').save    (method or call on an expression)
+        -> isinstance    (builtin)    x2
+        -> messagebox.showinfo    (from tkinter import messagebox)
+        -> messagebox.showwarning    (from tkinter import messagebox)    x2
+        -> samples.mkdir    (local variable or parameter)
+        -> self._load_poster_image    (this class, line 1583)
+        -> self._poster_samples_dir    (this class, line 2156)
+        -> self._save_poster_image_from_path    (this class, line 1519)
+        -> self.poster_number_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_number_var.get().strip    (method or call on an expression)
+        -> str    (builtin)
+    read_mongo_collection()    2670
+        -> self._read_mongo_collection    (this class, line 2661)
+    refresh_database_tabs()    2958
+        -> self.refresh_poster_designs    (this class, line 2962)
+        -> self.save_config    (this class, line 898)
+    refresh_file_browser()    1967
+        -> child.is_file    (local variable or parameter)
+        -> child.stat    (local variable or parameter)
+        -> current.is_dir    (local variable or parameter)
+        -> current.iterdir    (local variable or parameter)
+        -> datetime.fromtimestamp    (from datetime import datetime)    x2
+        -> datetime.fromtimestamp(stat.st_mtime).s…    (method or call on an expression)    x2
+        -> file_path.stat    (local variable or parameter)
+        -> file_path.suffix.lower    (local variable or parameter)
+        -> file_path.suffix.lower().lstrip    (method or call on an expression)
+        -> file_path.suffix.lower().lstrip('.').up…    (method or call on an expression)
+        -> folder.iterdir    (local variable or parameter)
+        -> folder.stat    (local variable or parameter)
+        -> len    (builtin)    x2
+        -> p.is_dir    (local variable or parameter)    x2
+        -> p.is_file    (local variable or parameter)
+        -> p.name.lower    (local variable or parameter)
+        -> Path    (from pathlib import Path)
+        -> Path.home    (from pathlib import Path)
+        -> self._format_file_size    (this class, line 1915)    x3
+        -> self.browser_directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.browser_directory_var.get().strip    (method or call on an expression)
+        -> self.browser_directory_var.set    (attribute of self (inherited or set at run time))
+        -> self.browser_dirs_tree.delete    (attribute of self (inherited or set at run time))
+        -> self.browser_dirs_tree.get_children    (attribute of self (inherited or set at run time))
+        -> self.browser_files_tree.delete    (attribute of self (inherited or set at run time))
+        -> self.browser_files_tree.get_children    (attribute of self (inherited or set at run time))
+        -> self.browser_status_var.set    (attribute of self (inherited or set at run time))    x3
+        -> self.directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.directory_var.get().strip    (method or call on an expression)
+        -> self.insert_row    (attribute of self (inherited or set at run time))    x2
+        -> sorted    (builtin)
+        -> str    (builtin)    x4
+    refresh_managed_tag_list()    2189
+        -> self.config.get    (attribute of self (inherited or set at run time))
+        -> self.tag_listbox.delete    (attribute of self (inherited or set at run time))
+        -> self.tag_listbox.insert    (attribute of self (inherited or set at run time))
+        -> self.tag_listbox.winfo_exists    (attribute of self (inherited or set at run time))
+    refresh_poster_designs()    2962
+        -> hasattr    (builtin)    x2
+        -> len    (builtin)    x2
+        -> load_poster_records    (from cc_poster_data import load_poster_records)
+        -> self._apply_poster_filter_and_sort    (this class, line 3036)
+        -> self._validate_saved_poster_number    (this class, line 2988)
+        -> self.master.update_idletasks    (attribute of self (inherited or set at run time))
+        -> self.mongo_database_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_database_var.get().strip    (method or call on an expression)
+        -> self.mongo_uri_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_uri_var.get().strip    (method or call on an expression)
+        -> self.poster_collection_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_collection_var.get().strip    (method or call on an expression)
+        -> self.poster_data_count_var.set    (attribute of self (inherited or set at run time))
+        -> self.poster_source_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_source_var.get().strip    (method or call on an expression)
+        -> self.poster_status_var.set    (attribute of self (inherited or set at run time))    x2
+        -> self.posters_py_var.get    (attribute of self (inherited or set at run time))
+        -> self.posters_py_var.get().strip    (method or call on an expression)
+    refresh_songs_data()    3110
+        -> hasattr    (builtin)
+        -> isinstance    (builtin)
+        -> len    (builtin)
+        -> self._apply_song_filter_and_sort    (this class, line 3135)
+        -> self._read_mongo_collection    (this class, line 2661)
+        -> self.mongo_database_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_database_var.get().strip    (method or call on an expression)
+        -> self.song_collection_var.get    (attribute of self (inherited or set at run time))
+        -> self.song_collection_var.get().strip    (method or call on an expression)
+        -> self.song_record_from_document    (this class, line 2673)
+        -> self.song_status_var.set    (attribute of self (inherited or set at run time))    x2
+    reload_directory()    2174
+        -> self.save_config    (this class, line 898)
+    repair_duplicate_posters()    2837
+        -> ', '.join    (method or call on an expression)
+        -> _mongo_repair_duplicate_posters    (this file, line 558)
+        -> _mongo_scan_poster_references    (this file, line 518)
+        -> audit.get    (local variable or parameter)
+        -> messagebox.askyesno    (from tkinter import messagebox)
+        -> messagebox.showerror    (from tkinter import messagebox)    x2
+        -> messagebox.showinfo    (from tkinter import messagebox)    x2
+        -> msg.splitlines    (local variable or parameter)
+        -> self._poster_backup_dir    (this class, line 2159)
+        -> self.mongo_database_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_database_var.get().strip    (method or call on an expression)
+        -> self.mongo_uri_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_uri_var.get().strip    (method or call on an expression)
+        -> self.poster_collection_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_collection_var.get().strip    (method or call on an expression)
+        -> self.poster_data_log_var.set    (attribute of self (inherited or set at run time))    x2
+        -> self.poster_source_var.set    (attribute of self (inherited or set at run time))
+        -> self.refresh_poster_designs    (this class, line 2962)
+        -> self.save_config    (this class, line 898)
+        -> stats.get    (local variable or parameter)
+    save_config()    898
+        -> json.dumps    (import json)
+        -> messagebox.showerror    (from tkinter import messagebox)
+        -> self.config_path.write_text    (attribute of self (inherited or set at run time))
+        -> self.sync_config_to_dict    (this class, line 857)
+    save_config_from_button()    910
+        -> datetime.now    (from datetime import datetime)
+        -> self.config_save_status_var.set    (attribute of self (inherited or set at run time))    x2
+        -> self.save_config    (this class, line 898)
+    save_web_image_sample()    1562
+        -> Image.open    (from PIL import Image)
+        -> img.save    (local variable or parameter)
+        -> messagebox.showwarning    (from tkinter import messagebox)
+        -> Request    (from urllib.request import Request)
+        -> samples.mkdir    (local variable or parameter)
+        -> self._load_poster_image    (this class, line 1583)
+        -> self._poster_samples_dir    (this class, line 2156)
+        -> self.poster_image_url_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_image_url_var.get().strip    (method or call on an expression)
+        -> self.poster_number_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_number_var.get().strip    (method or call on an expression)
+        -> str    (builtin)    x2
+        -> temp.unlink    (local variable or parameter)
+        -> temp.write_bytes    (local variable or parameter)
+        -> urlopen    (from urllib.request import urlopen)
+        -> urlopen(Request(url, headers={'User-Age…    (method or call on an expression)
+    shutdown()    944
+        -> self.master.after_cancel    (attribute of self (inherited or set at run time))
+        -> self.save_config    (this class, line 898)
+    song_record_from_document()    2673
+        -> shared_song_record_from_document    (from cc_song_data import song_record_from_document as shared_song_record_from_document)
+    sync_config_to_dict()    857
+        -> bool    (builtin)
+        -> current_tab_text    (from cpc_ui_state import current_tab_text)
+        -> int    (builtin)    x2
+        -> list    (builtin)
+        -> max    (builtin)    x2
+        -> min    (builtin)    x2
+        -> normalize_density_name    (from cpc_ui_theme import normalize_density_name)
+        -> normalize_theme_name    (from cpc_ui_theme import normalize_theme_name)
+        -> self.browser_directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.browser_directory_var.get().strip    (method or call on an expression)
+        -> self.config.get    (attribute of self (inherited or set at run time))
+        -> self.copyright_notice_var.get    (attribute of self (inherited or set at run time))
+        -> self.current_poster_record.get    (attribute of self (inherited or set at run time))
+        -> self.directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.directory_var.get().strip    (method or call on an expression)
+        -> self.master.winfo_height    (attribute of self (inherited or set at run time))
+        -> self.master.winfo_width    (attribute of self (inherited or set at run time))
+        -> self.mongo_database_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_database_var.get().strip    (method or call on an expression)
+        -> self.mongo_uri_var.get    (attribute of self (inherited or set at run time))
+        -> self.mongo_uri_var.get().strip    (method or call on an expression)
+        -> self.notebook.index    (attribute of self (inherited or set at run time))
+        -> self.notebook.select    (attribute of self (inherited or set at run time))
+        -> self.poster_auto_copy_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_backup_directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_backup_directory_var.get().…    (method or call on an expression)
+        -> self.poster_collection_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_collection_var.get().strip    (method or call on an expression)
+        -> self.poster_export_directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_export_directory_var.get().…    (method or call on an expression)
+        -> self.poster_root_directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_root_directory_var.get().st…    (method or call on an expression)
+        -> self.poster_samples_directory_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_samples_directory_var.get()…    (method or call on an expression)
+        -> self.poster_search_field_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_search_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_source_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_source_var.get().strip    (method or call on an expression)
+        -> self.posters_py_var.get    (attribute of self (inherited or set at run time))
+        -> self.posters_py_var.get().strip    (method or call on an expression)
+        -> self.song_collection_var.get    (attribute of self (inherited or set at run time))
+        -> self.song_collection_var.get().strip    (method or call on an expression)
+        -> self.song_search_var.get    (attribute of self (inherited or set at run time))
+        -> self.ui_density_var.get    (attribute of self (inherited or set at run time))
+        -> self.ui_theme_var.get    (attribute of self (inherited or set at run time))
+        -> str    (builtin)
+        -> str(self.current_poster_record.get('num…    (method or call on an expression)
+    update_poster_record()    1432
+        -> any    (builtin)
+        -> messagebox.showerror    (from tkinter import messagebox)
+        -> messagebox.showwarning    (from tkinter import messagebox)    x2
+        -> next    (builtin)
+        -> persist_poster_record    (from cc_poster_data import save_poster_record as persist_poster_record)
+        -> r.get    (local variable or parameter)    x2
+        -> self._load_poster_record_into_editor    (this class, line 1356)
+        -> self._poster_persistence_args    (this class, line 1381)
+        -> self._poster_text_value    (this class, line 1355)
+        -> self._rename_sample_image    (this class, line 1509)
+        -> self.add_poster_record    (this class, line 1410)
+        -> self.poster_name_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_name_var.get().strip    (method or call on an expression)
+        -> self.poster_number_var.get    (attribute of self (inherited or set at run time))
+        -> self.poster_number_var.get().strip    (method or call on an expression)
+        -> self.refresh_poster_designs    (this class, line 2962)
+        -> str    (builtin)    x3
+        -> str(old).strip    (method or call on an expression)
+        -> str(r.get('number', '')).strip    (method or call on an expression)    x2
+(module level)
+    -> main    (this file, line 3236)
+    -> Path    (from pathlib import Path)
+    -> Path(__file__).resolve    (method or call on an expression)
+    -> str    (builtin)    x2
+    -> sys.path.insert    (import sys)

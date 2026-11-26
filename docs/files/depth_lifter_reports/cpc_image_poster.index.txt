@@ -1,0 +1,136 @@
+source_file = cpc_image_poster.py
+source_modified = 2026-11-20 04:39:31
+name(parameters) -> return  [decorators]    first line   (classes: first-last)
+
+_compact_text(value)    278
+_display_text(value)    265
+_first_field(document, names, default='')    282
+_mongo_backup_posters(collection, backup_dir, label='pre-import')    440
+_mongo_import_posters_overwrite(*, mongo_uri, database_name, collection_name, records, backup_dir)    455
+_mongo_repair_duplicate_posters(*, mongo_uri, database_name, collection_name, backup_dir)    558
+_mongo_scan_poster_references(*, mongo_uri, database_name, collection_name)    518
+_poster_doc_ref(document)    344
+_poster_import_record(document)    355
+    first(*names)    359
+_poster_ref_key(value)    318
+_read_poster_import_file(path)    375
+_shared_config(config_path=None)    221
+attach(parent, context=None)    3231
+load_song_records(config_path=None)    314
+main()    3236
+read_mongo_collection(config_path, collection_name)    232
+song_record_from_document(document)    295
+class ImageSidekick(TreeviewMixin)    643-3229
+    __init__(self, master, embedded=False, host_context=None)    679
+    _apply_poster_filter_and_sort(self)    3036
+    _apply_song_filter_and_sort(self)    3135
+    _apply_ui_theme_choice(self)    1276
+    _build_file_browser_tab(self)    1838
+    _build_in(self, container)    963
+    _build_notes_tab(self)    1048
+        body(value)    1087
+        link(value, tab_name)    1090
+        title(value)    1084
+    _build_poster_designs_tab(self)    2244
+    _build_poster_tab(self)    1320
+    _build_settings_tab(self)    1601
+        _config_mousewheel(event)    1619
+    _build_songs_data_tab(self)    2581
+    _build_ui_choices_tab(self)    1203
+    _capture_current_window_size(self)    1269
+    _choose_config_directory(self, variable, title, default_path)    2139
+    _clean_tag_name(self, raw)    2177
+    _clear_poster_search(self)    2351
+    _compact_text(value)  [@staticmethod]    2650
+    _configured_directory(self, variable, default_path, create=False)    2149
+    _display_text(value)  [@staticmethod]    2637
+    _drop_poster_image_file(self, event)    1536
+    _export_json_documents(self, documents, default_name)    3178
+    _finish_poster_selection_restore(self)    3107
+    _first_field(document, names, default='')  [@staticmethod]    2623
+    _format_file_size(size)  [@staticmethod]    1915
+    _get_selected_poster_record(self)    2372
+    _goto_tab(self, name)    1044
+    _load_app_icon(self)    924
+    _load_config(self)    843
+    _load_poster_image(self, number)    1583
+    _load_poster_record_into_editor(self, record, switch_tab=False, load_image=True)    1356
+    _mixed_number_key(value)  [@staticmethod]    3018
+    _notify_host_tags_changed(self)    2196
+    _on_poster_row_selected(self, event=None)    2440
+    _on_poster_search_change(self, *args)    3012
+    _on_poster_search_field_change(self, *args)    2359
+    _on_song_search_change(self, *args)    3130
+    _on_tab_changed(self, event=None)    1021
+    _open_selected_browser_directory(self, event=None)    1953
+    _open_selected_poster(self, event=None)    2388
+    _populate_poster_tree(self)    3072
+    _populate_song_tree(self)    3161
+    _poster_backup_dir(self, create=False)    2159
+    _poster_export_dir(self, create=False)    2162
+    _poster_export_payload(self)    2676
+    _poster_image_path(self, number)    1571
+    _poster_persistence_args(self)    1381
+    _poster_record_from_document(self, document)    2653
+    _poster_samples_dir(self, create=False)    2156
+    _poster_snapshot_payload(self)    1390
+    _poster_source_changed(self)    2933
+    _poster_text_value(self)    1355
+    _read_mongo_collection(self, collection_name)    2661
+    _read_posters_py(self)    2656
+    _records_from_import_json(data)  [@staticmethod]    2718
+    _records_from_import_py(path)  [@staticmethod]    2744
+    _redraw_poster_design_previews(self)    2527
+    _refresh_poster_design_previews(self)    2486
+    _rename_sample_image(self, old, new)    1509
+    _resize_poster_image(self, event=None)    1594
+    _rewrite_image_without_metadata(source, copyright_notice='')  [@staticmethod]    2098
+    _run_poster_preview_refresh(self)    2460
+    _save_poster_image_from_path(self, path)    1519
+    _select_poster_row_offset(self, offset)    2464
+    _set_title_status(self, text='')    916
+    _show_import_progress(self, message, current=0, total=0)    2763
+    _show_poster_record(self, record)    1374
+    _toggle_poster_auto_copy(self)    2434
+    _toggle_poster_search_field(self)    2354
+    _validate_saved_poster_number(self)    2988
+    _validated_window_size(self)    828
+    _write_configured_poster_backup(self, prefix='posters-backup')    1400
+    _write_poster_export(self, path)    2687
+    add_managed_tag(self)    2199
+    add_poster_record(self)    1410
+    backup_posters(self)    1470
+    browser_go_up(self)    1943
+    choose_browser_directory(self)    1924
+    choose_directory(self)    2165
+    choose_poster_image_file(self)    1532
+    choose_posters_py(self)    2937
+    clean_selected_image_metadata(self, add_copyright=False)    2046
+    clear_poster_data(self)    2880
+    close_sidekick(self)    954
+    copy_poster_inst_to_clipboard(self)    1378
+    copy_poster_to_clipboard(self)    1376
+    copy_selected_poster_inst(self, silent=False)    2571
+    delete_managed_tag(self)    2219
+    delete_poster_record(self)    1479
+    export_active_posters_to_json(self)    3219
+    export_poster_data_json(self)    2695
+    export_posters_py_to_json(self)    3212
+    import_poster_data_json(self)    2779
+    open_tagger(self)    933
+    paste_poster_image(self)    1543
+    read_mongo_collection(self, collection_name)    2670
+    refresh_database_tabs(self)    2958
+    refresh_file_browser(self)    1967
+    refresh_managed_tag_list(self)    2189
+    refresh_poster_designs(self)    2962
+    refresh_songs_data(self)    3110
+    reload_directory(self)    2174
+    repair_duplicate_posters(self)    2837
+    save_config(self)    898
+    save_config_from_button(self)    910
+    save_web_image_sample(self)    1562
+    shutdown(self)    944
+    song_record_from_document(self, document)    2673
+    sync_config_to_dict(self)    857
+    update_poster_record(self)    1432

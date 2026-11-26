@@ -1,0 +1,8 @@
+{
+  "splash": "images/splash-cpc-image-poster-splash.webp",
+  "poster": "images/poster-cpc-image-poster-poster.webp",
+  "logo": "images/logo-logo.webp",
+  "favicon": "images/favicon-icon.png",
+  "poster:0": "images/poster-cpc-image-poster-poster.webp",
+  "poster:1": "images/splash-cpc-image-poster-splash.webp"
+}

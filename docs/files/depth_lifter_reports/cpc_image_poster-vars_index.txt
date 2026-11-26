@@ -1,0 +1,664 @@
+source_file = cpc_image_poster.py
+source_modified = 2026-11-20 04:39:31
+name: annotation = value    line numbers   (functions: name() with their variables indented; classes: first-last)
+
+APP_TITLE = 'Poster Store'    211
+CONFIG_FILE = 'image_poster.json'    213
+DEFAULT_POSTER_BACKUP_DIR = 'posters_creator\\poster_backups'    217
+DEFAULT_POSTER_EXPORT_DIR = 'posters_creator\\poster_exports'    218
+DEFAULT_POSTER_ROOT_DIR = 'posters_creator'    215
+DEFAULT_POSTER_SAMPLES_DIR = 'posters_creator\\poster_samples'    216
+description = 'Stores poster design prompts and keeps a sample …    153
+DND_FILES = None    176
+further = '\nEvery design has a unique Number, a Name and I…    154
+MongoClient = None    209
+named = 'Poster Designs Store'    152
+project = 'Image'    150
+shared_path = Path(__file__).resolve().parent.parent    145
+SIDEKICK_TITLE = 'Poster Store'    212
+TkinterDnD = None    175
+TV_BROWSER_DIRS = {'title': 'folders', 'columns': ('folder', 'files…    599
+TV_BROWSER_FILES = {'title': 'files', 'columns': ('filename', 'size'…    610
+TV_POSTER_DESIGNS = {'title': 'poster designs', 'columns': ('number',…    621
+TV_SONGS = {'title': 'songs', 'columns': ('title', 'tags', '…    632
+ui_choices = None    196
+ui_state = None    192
+ui_theme = None    188
+version = '34'    151
+_first_field()
+    actual
+    lower_map
+    name
+    value
+_mongo_backup_posters()
+    backup_dir
+    cursor
+    docs
+    path
+    stamp
+_mongo_import_posters_overwrite()
+    backup_path
+    by_ref
+    client
+    collection
+    doc
+    duplicate_docs_removed
+    existing_docs
+    extras
+    inserted
+    keeper
+    matches
+    payload
+    raw
+    record
+    ref
+    result
+    updated
+_mongo_repair_duplicate_posters()
+    _
+    backup_path
+    client
+    collection
+    cursor
+    doc
+    docs
+    duplicates
+    extras
+    group
+    groups
+    keeper
+    ref
+    removed
+    result
+_mongo_scan_poster_references()
+    client
+    collection
+    doc
+    docs
+    duplicate_groups
+    examples
+    groups
+    ref
+    unkeyed
+_poster_doc_ref()
+    actual
+    lower
+    wanted
+_poster_import_record()
+    lower
+    number
+    first()
+        actual
+        name
+_poster_ref_key()
+    text
+_read_poster_import_file()
+    by_ref
+    docs
+    duplicate_refs
+    fallback
+    item
+    key
+    name
+    nested
+    node
+    order
+    path
+    preferred
+    raw
+    record
+    records
+    skipped
+    source
+    tree
+    value
+    value_node
+    values
+_shared_config()
+    data
+main()
+    root
+read_mongo_collection()
+    client
+    collection_name
+    config
+    database_name
+    documents
+    uri
+song_record_from_document()
+    tags
+    title
+    versus
+    versus_full
+class ImageSidekick    643-3229
+    self._notes_fonts = (title_font, head_font)    1070
+    self._poster_preview_refresh_job = None    807, 952, 2430, 2458, 2461
+    self._poster_source_image = None    802, 1502, 1584, 1590
+    self._suppress_poster_position_save = False    806, 3100, 3108
+    self.browser_directory_var = tk.StringVar(master=master, value=self.config.get…    767
+    self.browser_dirs_tree = None    812, 1875
+    self.browser_files_tree = None    813, 1885
+    self.browser_status_var = tk.StringVar(master=master, value='No folder load…    771
+    self.colors = self.dark_colors    731, 1316
+    self.config = dict(self.DEFAULTS)    694
+    self.config_path = self.script_dir / CONFIG_FILE    693
+    self.config_save_status_var = tk.StringVar(master=self.master, value='')    1612
+    self.copyright_notice_var = tk.StringVar(master=master, value=self.config.get…    772
+    self.current_poster_record = None    810, 1363, 1495, 2918
+    self.dark_colors = dict(self.host_context.get('colors') or theme_pal…    723, 1306, 1311
+    DEFAULTS = {'config_version': 5, 'directory': '', 'poster_ro…    644
+    self.directory_entry = ttk.Entry(dir_frame, textvariable=self.directory_…    1632
+    self.directory_var = tk.StringVar(master=master, value=self.config.get…    734
+    self.embedded = bool(embedded)    681
+    self.file_browser_tab = None    794, 970
+    self.filtered_poster_records = []    785, 3069
+    self.filtered_song_records = []    787, 3158
+    self.gateway_container = None    798
+    self.gateway_controller = None    993, 996
+    self.gateway_tab = None    796, 972
+    self.host_context = host_context or {}    683
+    self.host_frame = master    682
+    self.master = master    680
+    self.mongo_database_var = tk.StringVar(master=master, value=self.config.get…    748
+    self.mongo_uri_var = tk.StringVar(master=master, value=self.config.get…    747
+    self.new_tag_entry = None    815, 1802
+    self.new_tag_var = tk.StringVar(master=master)    766
+    self.notebook = None    789, 964
+    self.notes_tab = None    790, 967
+    self.poster_auto_copy_text_var = tk.StringVar(master=master, value='Auto Copy: On'…    764
+    self.poster_auto_copy_var = tk.BooleanVar(master=master, value=bool(self.conf…    763
+    self.poster_backup_directory_var = tk.StringVar(master=master, value=self.config.get…    739
+    self.poster_collection_var = tk.StringVar(master=master, value=self.config.get…    749
+    self.poster_data_count_var = tk.StringVar(master=master, value='Database: 0 po…    778
+    self.poster_data_log_var = tk.StringVar(master=master, value='Ready')    780
+    self.poster_design_preview_canvas = None    803, 2317
+    self.poster_design_preview_refs = {}    805, 2489, 2550, 3084
+    self.poster_design_preview_sources = {}    804, 2488, 3083
+    self.poster_designs_tab = None    791, 968
+    self.poster_drop_label = tk.Label(file_drop, text='DROP IMAGE FILE HERE\n(…    1342
+    self.poster_export_directory_var = tk.StringVar(master=master, value=self.config.get…    742
+    self.poster_image_label = None    800, 1340
+    self.poster_image_ref = None    801, 1501, 1584, 1598
+    self.poster_image_url_var = tk.StringVar(master=self.master)    1353
+    self.poster_import_file_count_var = tk.StringVar(master=master, value='Import file: n…    779
+    self.poster_import_progress = ttk.Progressbar(progress_frame, variable=self.pos…    1772
+    self.poster_import_progress_text_var = tk.StringVar(master=master, value='Import progres…    782
+    self.poster_import_progress_var = tk.DoubleVar(master=master, value=0.0)    781
+    self.poster_name_var = tk.StringVar(master=master)    809
+    self.poster_number_var = tk.StringVar(master=master)    808
+    self.poster_original_number = ''    811, 1364, 1496, 2919
+    self.poster_records = []    784, 2964
+    self.poster_root_directory_var = tk.StringVar(master=master, value=self.config.get…    735
+    self.poster_samples_directory_var = tk.StringVar(master=master, value=self.config.get…    736
+    self.poster_search_field_text_var = tk.StringVar(master=master, value='Search Title' …    757
+    self.poster_search_field_var = tk.StringVar(master=master, value=search_field)    756
+    self.poster_search_var = tk.StringVar(master=master, value=self.config.get…    751
+    self.poster_source_var = tk.StringVar(master=master, value=self.config.get…    745
+    self.poster_status_var = tk.StringVar(master=master, value='Poster Designs…    762
+    self.poster_tab = None    795, 969
+    self.poster_text = None    799, 1331
+    self.poster_tree = self.build_treeview(tree_frame, TV_POSTER_DESIGNS…    2300
+    self.posters_py_var = tk.StringVar(master=master, value=self.config.get…    746
+    self.script_dir = Path(__file__).resolve().parent    692
+    self.settings_tab = None    793, 971, 1624
+    self.show_gateway = True if not self.embedded else bool(self.host_con…    684
+    self.show_ui_choices = True if not self.embedded else bool(self.host_con…    688
+    self.song_collection_var = tk.StringVar(master=master, value=self.config.get…    750
+    self.song_records = []    786, 3115
+    self.song_search_var = tk.StringVar(master=master, value=self.config.get…    761
+    self.song_status_var = tk.StringVar(master=master, value='Songs & Data n…    765
+    self.song_tree = self.build_treeview(tree_frame, TV_SONGS, caller=…    2612
+    self.songs_data_tab = None    792, 974
+    self.tag_listbox = None    814, 1814
+    self.ui_choices_controller = ui_choices.attach(self.ui_choices_tab, window=sel…    1208, 1225
+    self.ui_choices_tab = None    797, 973
+    self.ui_density = normalize_density_name(self.config.get('ui_densit…    712, 1293
+    self.ui_density_var = tk.StringVar(master=master, value=self.ui_density)    774, 1220
+    self.ui_theme_name = normalize_theme_name(self.config.get('ui_theme_na…    711, 1292
+    self.ui_theme_status_var = tk.StringVar(master=master, value='')    777
+    self.ui_theme_var = tk.StringVar(master=master, value=self.ui_theme_n…    773, 1219
+    self.window = master    788
+    self.window_height_var = tk.StringVar(master=master, value=str(height))    776, 1222
+    self.window_width_var = tk.StringVar(master=master, value=str(width))    775, 1221
+    __init__()
+        height
+        key
+        search_field
+        value
+        width
+    _apply_poster_filter_and_sort()
+        column
+        descending
+        filtered
+        haystack
+        name_text
+        number_text
+        query
+        record
+        search_field
+        words
+    _apply_song_filter_and_sort()
+        column
+        descending
+        filtered
+        haystack
+        query
+        record
+        words
+    _apply_ui_theme_choice()
+        density
+        height
+        name
+        width
+    _build_file_browser_tab()
+        actions
+        body
+        browser_export_bar
+        dirs_frame
+        files_frame
+        tab
+        top
+    _build_in()
+        remembered
+        restored
+        selected
+    _build_notes_tab()
+        b
+        base
+        bigger
+        colors
+        counter
+        dark_background
+        g
+        head_font
+        link_color
+        r
+        scroll
+        size
+        tab
+        text
+        title_font
+        link()
+            tag
+    _build_poster_designs_tab()
+        poster_export_bar
+        right
+        search_frame
+        status_frame
+        tab
+        tree_frame
+    _build_poster_tab()
+        buttons
+        file_drop
+        header
+        image_box
+        left
+        right
+        sample
+        scroll
+        tab
+    _build_settings_tab()
+        backup_path_frame
+        button_frame
+        canvas
+        column
+        content
+        counts_frame
+        data_frame
+        data_tools
+        db_names
+        dir_frame
+        export_path_frame
+        list_frame
+        metadata_frame
+        outer
+        progress_frame
+        root_path_frame
+        samples_path_frame
+        save_bar
+        scroll
+        source_frame
+        tag_add_frame
+        tag_scroll
+        window
+        _config_mousewheel()
+            delta
+    _build_songs_data_tab()
+        search_frame
+        song_export_bar
+        tree_frame
+    _build_ui_choices_tab()
+        actions
+        appearance
+        density_frame
+        size
+        tab
+        value
+    _choose_config_directory()
+        chosen
+        current
+        initial
+    _clean_tag_name()
+        tag
+    _configured_directory()
+        path
+        raw
+    _drop_poster_image_file()
+        paths
+    _export_json_documents()
+        clean_documents
+        document
+        target
+    _first_field()
+        actual
+        lower_map
+        name
+        value
+    _format_file_size()
+        size
+        unit
+    _get_selected_poster_record()
+        number
+        selection
+        values
+    _load_app_icon()
+        icon_path
+    _load_config()
+        data
+    _load_poster_image()
+        candidate
+        img
+    _mixed_number_key()
+        char
+        digits
+        text
+    _on_poster_row_selected()
+        number
+        record
+    _on_poster_search_field_change()
+        value
+    _on_tab_changed()
+        record
+        selected
+        selected_text
+    _open_selected_browser_directory()
+        current
+        folder
+        selection
+        target
+        values
+    _open_selected_poster()
+        item
+        number
+        record
+        selection
+        values
+    _populate_poster_tree()
+        canvas
+        first_item
+        index
+        item
+        record
+        saved_item
+        saved_number
+        target
+    _populate_song_tree()
+        item
+        record
+    _poster_image_path()
+        candidate
+        ext
+        samples
+        stem
+    _read_mongo_collection()
+        _database_name
+        documents
+        error
+    _read_posters_py()
+        poster_path
+        raw_path
+    _records_from_import_json()
+        data
+        item
+        key
+        number
+        records
+        skipped
+    _records_from_import_py()
+        data
+        node
+        posters_value
+        source
+        targets
+        tree
+    _redraw_poster_design_previews()
+        box_h
+        box_w
+        boxes
+        canvas
+        canvas_h
+        canvas_w
+        gap
+        img
+        key
+        middle_bottom
+        middle_top
+        ref
+        small_h
+        source
+        width_fraction
+        x1
+        x2
+        y1
+        y2
+    _refresh_poster_design_previews()
+        canvas
+        children
+        current_index
+        img
+        index
+        key
+        number
+        path
+        positions
+        selection
+        values
+    _rename_sample_image()
+        ext
+        samples
+        src
+    _resize_poster_image()
+        h
+        img
+        source_image
+        w
+    _rewrite_image_without_metadata()
+        clean
+        exif
+        img
+        pnginfo
+        save_args
+        source
+        suffix
+        temp
+    _save_poster_image_from_path()
+        img
+        number
+        samples
+    _select_poster_row_offset()
+        children
+        current_index
+        new_index
+        new_item
+        selection
+    _set_title_status()
+        title
+    _show_import_progress()
+        current
+        percent
+    _toggle_poster_auto_copy()
+        enabled
+    _toggle_poster_search_field()
+        current
+        new_value
+    _validate_saved_poster_number()
+        changed
+        raw
+        saved
+        valid_numbers
+    _validated_window_size()
+        default_h
+        default_w
+        height
+        width
+    _write_configured_poster_backup()
+        backup_dir
+        path
+        stamp
+    _write_poster_export()
+        payload
+    add_managed_tag()
+        tag
+        tags
+    add_poster_record()
+        error
+        inst
+        name
+        number
+        ok
+        record
+        selected
+    backup_posters()
+        path
+    browser_go_up()
+        current
+        parent
+    choose_browser_directory()
+        chosen
+        current
+    choose_directory()
+        chosen
+        initial
+    choose_poster_image_file()
+        path
+    choose_posters_py()
+        chosen
+        current
+        current_path
+        initial_dir
+    clean_selected_image_metadata()
+        action
+        cleaned
+        errors
+        notice
+        paths
+        selected
+        source
+    clear_poster_data()
+        count
+        error
+        export_dir
+        export_path
+        failed
+        number
+        ok
+        record
+        removed
+        stamp
+    copy_poster_to_clipboard()
+        text
+    copy_selected_poster_inst()
+        record
+    delete_managed_tag()
+        index
+        selection
+        tag
+        tags
+    delete_poster_record()
+        error
+        number
+        ok
+    export_active_posters_to_json()
+        collection_name
+        documents
+        error
+    export_poster_data_json()
+        chosen
+        count
+        stamp
+    export_posters_py_to_json()
+        documents
+        error
+    import_poster_data_json()
+        after_count
+        chosen
+        duplicate_refs
+        import_path
+        records
+        skipped
+        stats
+        summary
+        total
+    open_tagger()
+        tagger_path
+    paste_poster_image()
+        img
+        number
+        samples
+    refresh_file_browser()
+        child
+        current
+        dirs
+        entries
+        file_count
+        file_path
+        files
+        folder
+        folder_size
+        item
+        modified
+        path_text
+        stat
+        total_size
+    refresh_managed_tag_list()
+        tag
+    refresh_poster_designs()
+        error
+        source
+        source_label
+    refresh_songs_data()
+        collection_name
+        database_name
+        documents
+        error
+    repair_duplicate_posters()
+        audit
+        audit_text
+        coll_name
+        db_name
+        examples
+        msg
+        prompt
+        stats
+        target
+        uri
+    save_web_image_sample()
+        data
+        img
+        number
+        samples
+        temp
+        url
+    sync_config_to_dict()
+        current_h
+        current_w
+        number
+    update_poster_record()
+        error
+        inst
+        name
+        number
+        ok
+        old
+        record
+        selected

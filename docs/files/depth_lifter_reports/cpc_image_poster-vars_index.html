@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>cpc_image_poster-vars_index.html</title>
+<style id="cpc-code-css">
+:root{--code-font:'JetBrains Mono','Cascadia Code','Fira Code',Consolas,Menlo,monospace;--code-size:13px;--code-lh:1.55;--tab:4;--maxw:1300px}
+html[data-mode="projector"]{--code-size:22px;--code-lh:1.6;--maxw:none}
+html[data-theme="light"]{--page:#ffffff;--text:#1f2328;--panel:#f6f8fa;--border:#d0d7de;--muted:#59636e;--link:#0969da;--accent:#0969da;--on-accent:#ffffff;--shadow:0 1px 2px rgba(31,35,40,.06),0 4px 14px rgba(31,35,40,.06);--keyword:#cf222e;--builtin:#0550ae;--string:#0a3069;--comment:#6a737d;--number:#0550ae;--operator:#24292f;--definition:#8250df;--decorator:#953800}
+html[data-theme="dark"]{--page:#0d1117;--text:#e6edf3;--panel:#161b22;--border:#30363d;--muted:#8b949e;--link:#58a6ff;--accent:#1f6feb;--on-accent:#ffffff;--shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.35);--keyword:#ff7b72;--builtin:#79c0ff;--string:#a5d6ff;--comment:#8b949e;--number:#79c0ff;--operator:#e6edf3;--definition:#d2a8ff;--decorator:#ffa657}
+
+
+/* cpc_code_html_template.css
+   Page and code-card styles for the published source pages.
+
+   OPTIONAL: if this file is missing it is re-created from the copy built into
+   cpc_treeviews.py; if it is present, it is used exactly as written.
+
+   It is placed AFTER the generated theme/root variables (--page, --text,
+   --code-size ...), so a rule or variable here overrides them, e.g.
+       :root { --code-size: 15px; }
+       html[data-theme='dark'] { --accent: #f78166; }
+*/
+html {
+  color-scheme: light;
+}
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+html[data-mode='projector'][data-theme='light'] {
+  --page: #ffffff;
+  --text: #000000;
+  --muted: #2f3640;
+  --border: #9aa4b2;
+}
+html[data-mode='projector'][data-theme='dark'] {
+  --page: #000000;
+  --text: #ffffff;
+  --panel: #0b0f14;
+  --muted: #c9d1d9;
+  --border: #586374;
+}
+body {
+  background: var(--page);
+  color: var(--text);
+  font:
+    15px/1.6 system-ui,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  margin: 0;
+  padding: 0 26px 48px;
+  -webkit-font-smoothing: antialiased;
+}
+html[data-mode='projector'] body {
+  font-size: 20px;
+}
+#cpc-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin: 0 -26px;
+  padding: 9px 26px;
+  background: var(--page);
+  background: color-mix(in srgb, var(--page) 88%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.cpc-bar-in {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.cpc-logo {
+  height: 26px;
+  width: auto;
+  border-radius: 5px;
+  display: block;
+}
+.cpc-home {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 4px 2px;
+}
+.cpc-home:hover {
+  color: var(--link);
+}
+.cpc-grow {
+  flex: 1;
+}
+.cpc-btn {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 11px;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.3;
+  cursor: pointer;
+  transition:
+    background 0.12s,
+    border-color 0.12s;
+}
+.cpc-btn:hover {
+  border-color: var(--accent);
+}
+.cpc-btn[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.cpc-btn:focus-visible,
+.cpc-copy:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.cpc-seg {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.cpc-seg .cpc-btn {
+  border: 0;
+  border-radius: 0;
+  border-left: 1px solid var(--border);
+}
+.cpc-seg .cpc-btn:first-child {
+  border-left: 0;
+}
+main {
+  max-width: var(--maxw);
+  margin: 22px auto;
+}
+h1 {
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+  margin: 12px 0 6px;
+}
+h2 {
+  font-size: 1.1rem;
+  margin: 22px 0 8px;
+}
+a {
+  color: var(--link);
+}
+.meta {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.report {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  font-family: var(--code-font);
+  font-size: calc(var(--code-size) + var(--code-delta, 0px));
+  line-height: var(--code-lh);
+  tab-size: var(--tab);
+}
+.cpc-card {
+  margin: 14px 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.cpc-card[hidden] {
+  display: none;
+}
+.cpc-card.code {
+  margin-left: 36px;
+}
+.cpc-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px 5px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font:
+    600 11px/1.2 system-ui,
+    sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cpc-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.cpc-copy:hover {
+  color: var(--text);
+  border-color: var(--border);
+  background: var(--page);
+}
+.cpc-copy.done {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.cpc-card pre.source {
+  margin: 0;
+  padding: 10px 0;
+  overflow: auto;
+  background: transparent;
+  border: 0;
+  font-family: var(--code-font);
+  font-size: calc(var(--code-size) + var(--code-delta, 0px));
+  line-height: var(--code-lh);
+  tab-size: var(--tab);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.cpc-card code {
+  font: inherit;
+}
+.source-line {
+  display: block;
+  white-space: pre;
+  padding: 0 16px 0 0;
+  border-left: 3px solid transparent;
+  scroll-margin-top: 96px;
+}
+.source-line:target {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-left-color: var(--accent);
+}
+.line-number {
+  display: inline-block;
+  box-sizing: content-box;
+  width: var(--gut, 3ch);
+  padding: 0 10px 0 12px;
+  margin-right: 14px;
+  text-align: right;
+  border-right: 1px solid var(--border);
+  color: var(--muted);
+  user-select: none;
+  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+}
+a.line-number:hover {
+  color: var(--link);
+}
+html[data-lines='off'] .line-number {
+  display: none;
+}
+html[data-lines='off'] .source-line {
+  padding-left: 16px;
+}
+html[data-wrap='on'] .source-line {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.tok-keyword {
+  color: var(--keyword);
+  font-weight: 600;
+}
+.tok-builtin {
+  color: var(--builtin);
+}
+.tok-string {
+  color: var(--string);
+}
+.tok-comment {
+  color: var(--comment);
+  font-style: italic;
+}
+.tok-number {
+  color: var(--number);
+}
+.tok-operator {
+  color: var(--operator);
+}
+.tok-definition {
+  color: var(--definition);
+  font-weight: 600;
+}
+.tok-decorator {
+  color: var(--decorator);
+}
+.index-list {
+  columns: 2;
+  column-width: 270px;
+  padding-left: 22px;
+}
+.index-list li {
+  break-inside: avoid;
+  margin: 2px 0;
+}
+.index-list a {
+  overflow-wrap: anywhere;
+}
+.index-list small {
+  color: var(--muted);
+}
+html[data-mode='projector'] nav[aria-label='Definitions'] {
+  display: none;
+}
+#cpc-filter {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 420px;
+  margin: 10px 0 4px;
+  padding: 8px 12px;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+#cpc-filter:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+#nav,
+#bottom-nav {
+  display: none;
+}
+@media (max-width: 650px) {
+  :root {
+    --code-size: 12px;
+  }
+  body {
+    padding: 0 10px 32px;
+  }
+  #cpc-bar {
+    margin: 0 -10px;
+    padding: 8px 10px;
+  }
+  .index-list {
+    columns: 1;
+  }
+  .cpc-card.code {
+    margin-left: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media print {
+  #cpc-bar {
+    display: none;
+  }
+  body {
+    padding: 0;
+  }
+  .cpc-card {
+    box-shadow: none;
+  }
+  .cpc-copy {
+    display: none;
+  }
+}
+
+</style>
+<script id="cpc-code-js">
+
+/* cpc_code_html_template.js
+   Control bar (theme / projector / size / lines / wrap / reset), copy buttons
+   and keyboard shortcuts (t, p, /) for the published source pages.
+
+   OPTIONAL: if this file is missing it is re-created from the copy built into
+   cpc_treeviews.py; if it is present, it is used exactly as written.
+
+   Keep the config placeholder on the first 'var C =' line: it is replaced with
+   the page's config (theme, mode, logo, index_href ...) when the page is built.
+*/
+(function () {
+  var C = {"theme": "light", "mode": "normal", "line_numbers": true, "wrap": false, "logo": "logo.png", "host_address": "", "index_href": "index.html", "storage_key": "cpc_code_view"},
+    KEY = C.storage_key,
+    root = document.documentElement;
+  var S = { theme: C.theme, mode: C.mode, delta: 0, lines: C.line_numbers, wrap: C.wrap };
+  function load() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (raw) {
+        var o = JSON.parse(raw);
+        for (var k in S) {
+          if (o && o[k] !== undefined) S[k] = o[k];
+        }
+      } else {
+        var old = localStorage.getItem('depth_lifter_html_theme');
+        if (old === 'light' || old === 'dark') S.theme = old;
+      }
+    } catch (e) {}
+  }
+  function save() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(S));
+    } catch (e) {}
+  }
+  function apply() {
+    root.dataset.theme = S.theme === 'dark' ? 'dark' : 'light';
+    root.dataset.mode = S.mode === 'projector' ? 'projector' : 'normal';
+    root.dataset.lines = S.lines ? 'on' : 'off';
+    root.dataset.wrap = S.wrap ? 'on' : 'off';
+    root.style.setProperty('--code-delta', S.delta + 'px');
+    var P = {
+      'theme:light': S.theme !== 'dark',
+      'theme:dark': S.theme === 'dark',
+      projector: S.mode === 'projector',
+      lines: !!S.lines,
+      wrap: !!S.wrap,
+    };
+    var bs = document.querySelectorAll('[data-cpc]');
+    for (var i = 0; i < bs.length; i++) {
+      var k = bs[i].dataset.cpc;
+      if (k in P) bs[i].setAttribute('aria-pressed', String(P[k]));
+    }
+  }
+  function act(n) {
+    if (n === 'theme:light' || n === 'theme:dark') S.theme = n.slice(6);
+    else if (n === 'projector') S.mode = S.mode === 'projector' ? 'normal' : 'projector';
+    else if (n === 'lines') S.lines = !S.lines;
+    else if (n === 'wrap') S.wrap = !S.wrap;
+    else if (n === 'bigger') S.delta = Math.min(S.delta + 1, 20);
+    else if (n === 'smaller') S.delta = Math.max(S.delta - 1, -4);
+    else if (n === 'reset') {
+      S.theme = C.theme;
+      S.mode = C.mode;
+      S.delta = 0;
+      S.lines = C.line_numbers;
+      S.wrap = C.wrap;
+      try {
+        localStorage.removeItem(KEY);
+      } catch (e) {}
+      apply();
+      return;
+    }
+    apply();
+    save();
+  }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function btn(label, name, title, parent) {
+    var b = el('button', 'cpc-btn', label);
+    b.type = 'button';
+    b.dataset.cpc = name;
+    b.title = title || label;
+    b.addEventListener('click', function () {
+      act(name);
+    });
+    parent.appendChild(b);
+    return b;
+  }
+  function url(p) {
+    return C.host_address ? C.host_address.replace(/\/+$/, '') + '/' + p.replace(/^\/+/, '') : p;
+  }
+  function build() {
+    var bar = document.getElementById('cpc-bar');
+    if (!bar) return;
+    bar.textContent = '';
+    var row = el('div', 'cpc-bar-in');
+    if (C.logo) {
+      var img = el('img', 'cpc-logo');
+      img.alt = '';
+      img.src = url(C.logo);
+      img.addEventListener('error', function () {
+        img.remove();
+      });
+      if (C.index_href) {
+        var la = el('a');
+        la.href = url(C.index_href);
+        la.appendChild(img);
+        row.appendChild(la);
+      } else row.appendChild(img);
+    }
+    if (C.index_href) {
+      var h = el('a', 'cpc-home', '\u2190 Index');
+      h.href = url(C.index_href);
+      row.appendChild(h);
+    }
+    row.appendChild(el('span', 'cpc-grow'));
+    var seg = el('span', 'cpc-seg');
+    btn('Light', 'theme:light', 'Light theme (t)', seg);
+    btn('Dark', 'theme:dark', 'Dark theme (t)', seg);
+    row.appendChild(seg);
+    btn('Projector', 'projector', 'Projector mode (p)', row);
+    var sz = el('span', 'cpc-seg');
+    btn('A\u2212', 'smaller', 'Smaller code', sz);
+    btn('A+', 'bigger', 'Larger code', sz);
+    row.appendChild(sz);
+    if (document.querySelector('.source-line')) {
+      btn('# Lines', 'lines', 'Line numbers', row);
+      btn('Wrap', 'wrap', 'Wrap long lines', row);
+    }
+    btn('Reset', 'reset', 'Back to the page defaults', row);
+    bar.appendChild(row);
+    apply();
+  }
+  function cardText(card) {
+    var pre = card.querySelector('pre');
+    if (!pre) return card.textContent;
+    var rows = pre.querySelectorAll('.source-line');
+    if (!rows.length) return pre.textContent;
+    return Array.prototype.map
+      .call(rows, function (r) {
+        var c = r.cloneNode(true),
+          n = c.querySelector('.line-number');
+        if (n) n.remove();
+        return c.textContent;
+      })
+      .join('\n');
+  }
+  function fallback(t, ok) {
+    var a = document.createElement('textarea');
+    a.value = t;
+    a.style.position = 'fixed';
+    a.style.opacity = '0';
+    document.body.appendChild(a);
+    a.select();
+    try {
+      if (document.execCommand('copy')) ok();
+    } catch (e) {}
+    document.body.removeChild(a);
+  }
+  function copyText(t, b) {
+    function ok() {
+      b.classList.add('done');
+      b.title = 'Copied';
+      setTimeout(function () {
+        b.classList.remove('done');
+        b.title = 'Copy code';
+      }, 1200);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText)
+      navigator.clipboard.writeText(t).then(ok, function () {
+        fallback(t, ok);
+      });
+    else fallback(t, ok);
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.cpc-copy');
+    if (!b) return;
+    var card = b.closest('.cpc-card');
+    if (card) copyText(cardText(card), b);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    if (e.key === 't') act(S.theme === 'dark' ? 'theme:light' : 'theme:dark');
+    else if (e.key === 'p') act('projector');
+    else if (e.key === '/') {
+      var f = document.getElementById('cpc-filter');
+      if (f) {
+        e.preventDefault();
+        f.focus();
+      }
+    }
+  });
+  window.chooseTheme = function (t) {
+    act('theme:' + (t === 'dark' ? 'dark' : 'light'));
+  };
+  load();
+  apply();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build);
+  else build();
+})();
+
+</script>
+<style id="page-css"></style></head><body><header id="cpc-bar"></header><div id="nav" hidden></div><main><h1>cpc_image_poster-vars_index.html</h1><pre class="report">source_file = cpc_image_poster.py
+source_modified = 2026-11-20 04:39:31
+name: annotation = value    line numbers   (functions: name() with their variables indented; classes: first-last)
+
+APP_TITLE = &#x27;Poster Store&#x27;    211
+CONFIG_FILE = &#x27;image_poster.json&#x27;    213
+DEFAULT_POSTER_BACKUP_DIR = &#x27;posters_creator\\poster_backups&#x27;    217
+DEFAULT_POSTER_EXPORT_DIR = &#x27;posters_creator\\poster_exports&#x27;    218
+DEFAULT_POSTER_ROOT_DIR = &#x27;posters_creator&#x27;    215
+DEFAULT_POSTER_SAMPLES_DIR = &#x27;posters_creator\\poster_samples&#x27;    216
+description = &#x27;Stores poster design prompts and keeps a sample …    153
+DND_FILES = None    176
+further = &#x27;\nEvery design has a unique Number, a Name and I…    154
+MongoClient = None    209
+named = &#x27;Poster Designs Store&#x27;    152
+project = &#x27;Image&#x27;    150
+shared_path = Path(__file__).resolve().parent.parent    145
+SIDEKICK_TITLE = &#x27;Poster Store&#x27;    212
+TkinterDnD = None    175
+TV_BROWSER_DIRS = {&#x27;title&#x27;: &#x27;folders&#x27;, &#x27;columns&#x27;: (&#x27;folder&#x27;, &#x27;files…    599
+TV_BROWSER_FILES = {&#x27;title&#x27;: &#x27;files&#x27;, &#x27;columns&#x27;: (&#x27;filename&#x27;, &#x27;size&#x27;…    610
+TV_POSTER_DESIGNS = {&#x27;title&#x27;: &#x27;poster designs&#x27;, &#x27;columns&#x27;: (&#x27;number&#x27;,…    621
+TV_SONGS = {&#x27;title&#x27;: &#x27;songs&#x27;, &#x27;columns&#x27;: (&#x27;title&#x27;, &#x27;tags&#x27;, &#x27;…    632
+ui_choices = None    196
+ui_state = None    192
+ui_theme = None    188
+version = &#x27;34&#x27;    151
+_first_field()
+    actual
+    lower_map
+    name
+    value
+_mongo_backup_posters()
+    backup_dir
+    cursor
+    docs
+    path
+    stamp
+_mongo_import_posters_overwrite()
+    backup_path
+    by_ref
+    client
+    collection
+    doc
+    duplicate_docs_removed
+    existing_docs
+    extras
+    inserted
+    keeper
+    matches
+    payload
+    raw
+    record
+    ref
+    result
+    updated
+_mongo_repair_duplicate_posters()
+    _
+    backup_path
+    client
+    collection
+    cursor
+    doc
+    docs
+    duplicates
+    extras
+    group
+    groups
+    keeper
+    ref
+    removed
+    result
+_mongo_scan_poster_references()
+    client
+    collection
+    doc
+    docs
+    duplicate_groups
+    examples
+    groups
+    ref
+    unkeyed
+_poster_doc_ref()
+    actual
+    lower
+    wanted
+_poster_import_record()
+    lower
+    number
+    first()
+        actual
+        name
+_poster_ref_key()
+    text
+_read_poster_import_file()
+    by_ref
+    docs
+    duplicate_refs
+    fallback
+    item
+    key
+    name
+    nested
+    node
+    order
+    path
+    preferred
+    raw
+    record
+    records
+    skipped
+    source
+    tree
+    value
+    value_node
+    values
+_shared_config()
+    data
+main()
+    root
+read_mongo_collection()
+    client
+    collection_name
+    config
+    database_name
+    documents
+    uri
+song_record_from_document()
+    tags
+    title
+    versus
+    versus_full
+class ImageSidekick    643-3229
+    self._notes_fonts = (title_font, head_font)    1070
+    self._poster_preview_refresh_job = None    807, 952, 2430, 2458, 2461
+    self._poster_source_image = None    802, 1502, 1584, 1590
+    self._suppress_poster_position_save = False    806, 3100, 3108
+    self.browser_directory_var = tk.StringVar(master=master, value=self.config.get…    767
+    self.browser_dirs_tree = None    812, 1875
+    self.browser_files_tree = None    813, 1885
+    self.browser_status_var = tk.StringVar(master=master, value=&#x27;No folder load…    771
+    self.colors = self.dark_colors    731, 1316
+    self.config = dict(self.DEFAULTS)    694
+    self.config_path = self.script_dir / CONFIG_FILE    693
+    self.config_save_status_var = tk.StringVar(master=self.master, value=&#x27;&#x27;)    1612
+    self.copyright_notice_var = tk.StringVar(master=master, value=self.config.get…    772
+    self.current_poster_record = None    810, 1363, 1495, 2918
+    self.dark_colors = dict(self.host_context.get(&#x27;colors&#x27;) or theme_pal…    723, 1306, 1311
+    DEFAULTS = {&#x27;config_version&#x27;: 5, &#x27;directory&#x27;: &#x27;&#x27;, &#x27;poster_ro…    644
+    self.directory_entry = ttk.Entry(dir_frame, textvariable=self.directory_…    1632
+    self.directory_var = tk.StringVar(master=master, value=self.config.get…    734
+    self.embedded = bool(embedded)    681
+    self.file_browser_tab = None    794, 970
+    self.filtered_poster_records = []    785, 3069
+    self.filtered_song_records = []    787, 3158
+    self.gateway_container = None    798
+    self.gateway_controller = None    993, 996
+    self.gateway_tab = None    796, 972
+    self.host_context = host_context or {}    683
+    self.host_frame = master    682
+    self.master = master    680
+    self.mongo_database_var = tk.StringVar(master=master, value=self.config.get…    748
+    self.mongo_uri_var = tk.StringVar(master=master, value=self.config.get…    747
+    self.new_tag_entry = None    815, 1802
+    self.new_tag_var = tk.StringVar(master=master)    766
+    self.notebook = None    789, 964
+    self.notes_tab = None    790, 967
+    self.poster_auto_copy_text_var = tk.StringVar(master=master, value=&#x27;Auto Copy: On&#x27;…    764
+    self.poster_auto_copy_var = tk.BooleanVar(master=master, value=bool(self.conf…    763
+    self.poster_backup_directory_var = tk.StringVar(master=master, value=self.config.get…    739
+    self.poster_collection_var = tk.StringVar(master=master, value=self.config.get…    749
+    self.poster_data_count_var = tk.StringVar(master=master, value=&#x27;Database: 0 po…    778
+    self.poster_data_log_var = tk.StringVar(master=master, value=&#x27;Ready&#x27;)    780
+    self.poster_design_preview_canvas = None    803, 2317
+    self.poster_design_preview_refs = {}    805, 2489, 2550, 3084
+    self.poster_design_preview_sources = {}    804, 2488, 3083
+    self.poster_designs_tab = None    791, 968
+    self.poster_drop_label = tk.Label(file_drop, text=&#x27;DROP IMAGE FILE HERE\n(…    1342
+    self.poster_export_directory_var = tk.StringVar(master=master, value=self.config.get…    742
+    self.poster_image_label = None    800, 1340
+    self.poster_image_ref = None    801, 1501, 1584, 1598
+    self.poster_image_url_var = tk.StringVar(master=self.master)    1353
+    self.poster_import_file_count_var = tk.StringVar(master=master, value=&#x27;Import file: n…    779
+    self.poster_import_progress = ttk.Progressbar(progress_frame, variable=self.pos…    1772
+    self.poster_import_progress_text_var = tk.StringVar(master=master, value=&#x27;Import progres…    782
+    self.poster_import_progress_var = tk.DoubleVar(master=master, value=0.0)    781
+    self.poster_name_var = tk.StringVar(master=master)    809
+    self.poster_number_var = tk.StringVar(master=master)    808
+    self.poster_original_number = &#x27;&#x27;    811, 1364, 1496, 2919
+    self.poster_records = []    784, 2964
+    self.poster_root_directory_var = tk.StringVar(master=master, value=self.config.get…    735
+    self.poster_samples_directory_var = tk.StringVar(master=master, value=self.config.get…    736
+    self.poster_search_field_text_var = tk.StringVar(master=master, value=&#x27;Search Title&#x27; …    757
+    self.poster_search_field_var = tk.StringVar(master=master, value=search_field)    756
+    self.poster_search_var = tk.StringVar(master=master, value=self.config.get…    751
+    self.poster_source_var = tk.StringVar(master=master, value=self.config.get…    745
+    self.poster_status_var = tk.StringVar(master=master, value=&#x27;Poster Designs…    762
+    self.poster_tab = None    795, 969
+    self.poster_text = None    799, 1331
+    self.poster_tree = self.build_treeview(tree_frame, TV_POSTER_DESIGNS…    2300
+    self.posters_py_var = tk.StringVar(master=master, value=self.config.get…    746
+    self.script_dir = Path(__file__).resolve().parent    692
+    self.settings_tab = None    793, 971, 1624
+    self.show_gateway = True if not self.embedded else bool(self.host_con…    684
+    self.show_ui_choices = True if not self.embedded else bool(self.host_con…    688
+    self.song_collection_var = tk.StringVar(master=master, value=self.config.get…    750
+    self.song_records = []    786, 3115
+    self.song_search_var = tk.StringVar(master=master, value=self.config.get…    761
+    self.song_status_var = tk.StringVar(master=master, value=&#x27;Songs &amp; Data n…    765
+    self.song_tree = self.build_treeview(tree_frame, TV_SONGS, caller=…    2612
+    self.songs_data_tab = None    792, 974
+    self.tag_listbox = None    814, 1814
+    self.ui_choices_controller = ui_choices.attach(self.ui_choices_tab, window=sel…    1208, 1225
+    self.ui_choices_tab = None    797, 973
+    self.ui_density = normalize_density_name(self.config.get(&#x27;ui_densit…    712, 1293
+    self.ui_density_var = tk.StringVar(master=master, value=self.ui_density)    774, 1220
+    self.ui_theme_name = normalize_theme_name(self.config.get(&#x27;ui_theme_na…    711, 1292
+    self.ui_theme_status_var = tk.StringVar(master=master, value=&#x27;&#x27;)    777
+    self.ui_theme_var = tk.StringVar(master=master, value=self.ui_theme_n…    773, 1219
+    self.window = master    788
+    self.window_height_var = tk.StringVar(master=master, value=str(height))    776, 1222
+    self.window_width_var = tk.StringVar(master=master, value=str(width))    775, 1221
+    __init__()
+        height
+        key
+        search_field
+        value
+        width
+    _apply_poster_filter_and_sort()
+        column
+        descending
+        filtered
+        haystack
+        name_text
+        number_text
+        query
+        record
+        search_field
+        words
+    _apply_song_filter_and_sort()
+        column
+        descending
+        filtered
+        haystack
+        query
+        record
+        words
+    _apply_ui_theme_choice()
+        density
+        height
+        name
+        width
+    _build_file_browser_tab()
+        actions
+        body
+        browser_export_bar
+        dirs_frame
+        files_frame
+        tab
+        top
+    _build_in()
+        remembered
+        restored
+        selected
+    _build_notes_tab()
+        b
+        base
+        bigger
+        colors
+        counter
+        dark_background
+        g
+        head_font
+        link_color
+        r
+        scroll
+        size
+        tab
+        text
+        title_font
+        link()
+            tag
+    _build_poster_designs_tab()
+        poster_export_bar
+        right
+        search_frame
+        status_frame
+        tab
+        tree_frame
+    _build_poster_tab()
+        buttons
+        file_drop
+        header
+        image_box
+        left
+        right
+        sample
+        scroll
+        tab
+    _build_settings_tab()
+        backup_path_frame
+        button_frame
+        canvas
+        column
+        content
+        counts_frame
+        data_frame
+        data_tools
+        db_names
+        dir_frame
+        export_path_frame
+        list_frame
+        metadata_frame
+        outer
+        progress_frame
+        root_path_frame
+        samples_path_frame
+        save_bar
+        scroll
+        source_frame
+        tag_add_frame
+        tag_scroll
+        window
+        _config_mousewheel()
+            delta
+    _build_songs_data_tab()
+        search_frame
+        song_export_bar
+        tree_frame
+    _build_ui_choices_tab()
+        actions
+        appearance
+        density_frame
+        size
+        tab
+        value
+    _choose_config_directory()
+        chosen
+        current
+        initial
+    _clean_tag_name()
+        tag
+    _configured_directory()
+        path
+        raw
+    _drop_poster_image_file()
+        paths
+    _export_json_documents()
+        clean_documents
+        document
+        target
+    _first_field()
+        actual
+        lower_map
+        name
+        value
+    _format_file_size()
+        size
+        unit
+    _get_selected_poster_record()
+        number
+        selection
+        values
+    _load_app_icon()
+        icon_path
+    _load_config()
+        data
+    _load_poster_image()
+        candidate
+        img
+    _mixed_number_key()
+        char
+        digits
+        text
+    _on_poster_row_selected()
+        number
+        record
+    _on_poster_search_field_change()
+        value
+    _on_tab_changed()
+        record
+        selected
+        selected_text
+    _open_selected_browser_directory()
+        current
+        folder
+        selection
+        target
+        values
+    _open_selected_poster()
+        item
+        number
+        record
+        selection
+        values
+    _populate_poster_tree()
+        canvas
+        first_item
+        index
+        item
+        record
+        saved_item
+        saved_number
+        target
+    _populate_song_tree()
+        item
+        record
+    _poster_image_path()
+        candidate
+        ext
+        samples
+        stem
+    _read_mongo_collection()
+        _database_name
+        documents
+        error
+    _read_posters_py()
+        poster_path
+        raw_path
+    _records_from_import_json()
+        data
+        item
+        key
+        number
+        records
+        skipped
+    _records_from_import_py()
+        data
+        node
+        posters_value
+        source
+        targets
+        tree
+    _redraw_poster_design_previews()
+        box_h
+        box_w
+        boxes
+        canvas
+        canvas_h
+        canvas_w
+        gap
+        img
+        key
+        middle_bottom
+        middle_top
+        ref
+        small_h
+        source
+        width_fraction
+        x1
+        x2
+        y1
+        y2
+    _refresh_poster_design_previews()
+        canvas
+        children
+        current_index
+        img
+        index
+        key
+        number
+        path
+        positions
+        selection
+        values
+    _rename_sample_image()
+        ext
+        samples
+        src
+    _resize_poster_image()
+        h
+        img
+        source_image
+        w
+    _rewrite_image_without_metadata()
+        clean
+        exif
+        img
+        pnginfo
+        save_args
+        source
+        suffix
+        temp
+    _save_poster_image_from_path()
+        img
+        number
+        samples
+    _select_poster_row_offset()
+        children
+        current_index
+        new_index
+        new_item
+        selection
+    _set_title_status()
+        title
+    _show_import_progress()
+        current
+        percent
+    _toggle_poster_auto_copy()
+        enabled
+    _toggle_poster_search_field()
+        current
+        new_value
+    _validate_saved_poster_number()
+        changed
+        raw
+        saved
+        valid_numbers
+    _validated_window_size()
+        default_h
+        default_w
+        height
+        width
+    _write_configured_poster_backup()
+        backup_dir
+        path
+        stamp
+    _write_poster_export()
+        payload
+    add_managed_tag()
+        tag
+        tags
+    add_poster_record()
+        error
+        inst
+        name
+        number
+        ok
+        record
+        selected
+    backup_posters()
+        path
+    browser_go_up()
+        current
+        parent
+    choose_browser_directory()
+        chosen
+        current
+    choose_directory()
+        chosen
+        initial
+    choose_poster_image_file()
+        path
+    choose_posters_py()
+        chosen
+        current
+        current_path
+        initial_dir
+    clean_selected_image_metadata()
+        action
+        cleaned
+        errors
+        notice
+        paths
+        selected
+        source
+    clear_poster_data()
+        count
+        error
+        export_dir
+        export_path
+        failed
+        number
+        ok
+        record
+        removed
+        stamp
+    copy_poster_to_clipboard()
+        text
+    copy_selected_poster_inst()
+        record
+    delete_managed_tag()
+        index
+        selection
+        tag
+        tags
+    delete_poster_record()
+        error
+        number
+        ok
+    export_active_posters_to_json()
+        collection_name
+        documents
+        error
+    export_poster_data_json()
+        chosen
+        count
+        stamp
+    export_posters_py_to_json()
+        documents
+        error
+    import_poster_data_json()
+        after_count
+        chosen
+        duplicate_refs
+        import_path
+        records
+        skipped
+        stats
+        summary
+        total
+    open_tagger()
+        tagger_path
+    paste_poster_image()
+        img
+        number
+        samples
+    refresh_file_browser()
+        child
+        current
+        dirs
+        entries
+        file_count
+        file_path
+        files
+        folder
+        folder_size
+        item
+        modified
+        path_text
+        stat
+        total_size
+    refresh_managed_tag_list()
+        tag
+    refresh_poster_designs()
+        error
+        source
+        source_label
+    refresh_songs_data()
+        collection_name
+        database_name
+        documents
+        error
+    repair_duplicate_posters()
+        audit
+        audit_text
+        coll_name
+        db_name
+        examples
+        msg
+        prompt
+        stats
+        target
+        uri
+    save_web_image_sample()
+        data
+        img
+        number
+        samples
+        temp
+        url
+    sync_config_to_dict()
+        current_h
+        current_w
+        number
+    update_poster_record()
+        error
+        inst
+        name
+        number
+        ok
+        old
+        record
+        selected
+</pre></main><div id="bottom-nav" hidden></div><script></script></body></html>
